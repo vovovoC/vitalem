@@ -1,0 +1,35 @@
+added:
+    react-router-dom
+    sass
+    react-reveal
+    react-spring
+
+component:
+    button:
+        BlueButton
+    input:
+        InputText
+        InputPassword
+    link:
+        SmallBlueLink
+    check:
+        BlueCheck
+        GreenCheck
+    heading:
+        Heading
+    navbar:
+        SigninNavbar
+        RegisterNavbar
+        HealthNavbar
+        CalendarNavbar
+        ProfileNavbar
+        PassportNavbar
+        ChatNavbar
+    choose:
+        ChooseBox
+        ChooseDisType
+        ChooseDoctor
+    goto:
+        LinkBox
+    news:
+
