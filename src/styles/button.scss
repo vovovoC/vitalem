@@ -15,17 +15,104 @@
     background-color:$backgroundColor;
     cursor: pointer;
     border:none;
+    width:95vw;
     color:white;
 }
 //inputs register, signin
 input[type=text],input[type=password]{
     border: 1px solid #ccc;
+    text-align: center;
+    outline: none;
     &:placeholder{
-        color: $placeholderColor;
-        text-align: center;
+        color: #BBC3C6;
         font-family: $fontFamily;
         font-size: 14px;
     }
+}
+.navbar{
+    height:56px;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content:flex-start;
+    text-align: center;
+    align-items: center;
+    background-color: white;
+    top:0;
+    z-index: 1;
+    left: 0;
+}
+.hr{
+    height: 1px;
+    width: 100%;
+    position: fixed;
+    top:56px;
+    left: 0;
+    background-color:  #E4E4E4;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+}
+.backButton{
+    display: flex;
+    height: 56px;
+    width:40px;
+    position: absolute;
+    left: 0;
+    top:auto;
+}
+.centerText{
+    display: flex;
+    height: 56px;
+    width: 100%;
+    z-index: 2;
+    position: fixed;
+    left: 0;
+    top:auto;
+    justify-content:center;
+    align-items: center;
+    span{
+        font-size: 17px;
+        font-weight:bold;
+        line-height: 20px;
+    }
+}
+.greenAllow{
+    text-decoration: none;
+    text-align: left;
+    .row,.col-1,.col-11{
+        padding: 0;
+        margin: 0;
+    }
+    img{
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 24px;
+        height: 24px;
+    }
+    span{
+        display: flex;
+        height: auto;
+        width: 90%;
+        padding-left: 5px;
+        font-weight: 590;
+        font-size: 14px;
+        align-items: center;
+        justify-content: flex-start;
+    }
+}
+
+//signin form
+
+.signin{
+    form{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+//forgot click
+.forgot-password{
+    margin: 10px 0px;
 }
 //blue small link sign in
 .d{
@@ -50,23 +137,6 @@ input[type=text],input[type=password]{
     text-align: center;
     margin:0px;
     padding: 0px;
-}
-.greenAllow{
-    max-width: $maxWidth;
-    width:$widthInputs;
-    height: $heightInputs;
-    font-family: $fontFamily;
-    box-sizing: border-box;
-    display: inline-block; 
-    font-size:$fontSizeInput;
-    text-decoration: none;
-    text-align: left;
-}
-.greenAllow{
-    font-family:$fontSizeInput;
-    font-size: 16px;
-    line-height: 24px;
-    color: $textColor;
 }
 .lg{
     box-shadow: 0px 0px 16px rgba(64, 117, 205, 0.16);
@@ -118,7 +188,7 @@ input[type=text],input[type=password]{
         bottom: 20px;
         left: 5%;
         input{
-            max-width: 100%     ;
+            max-width: 100%;
         }
     }
 }
@@ -160,7 +230,7 @@ input[type=text],input[type=password]{
                 position: fixed;
                 bottom: 20px;
                 left:0;
-                p,span{
+                p{
                     text-align: center;
                 }
         }
@@ -177,35 +247,52 @@ input[type=text],input[type=password]{
         text-align: center;
 }
 
-@media screen and (min-width: 400px) and (max-height: 400px){
+@media screen and (max-width: 900px) and (max-height: 500px){
     .main{
-        height: 100vh;
+        height: 90vh;
         width: 100%;
         margin: 0;
+        margin-bottom: 10vh;
         padding: 0;
-    }
         .bigLogo{
-            height:300px;
+            height: auto;
+            position: relative;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .body-container{
-            position: sticky;
-            bottom: 100px;
+            position: relative;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            bottom: 0;
+            height: auto;
+            a{
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
+                padding: 0 20px;
+            }
         }
         .textUnderLogo{
-            width: 400px;
+            width: auto;
+            position: relative;
+            a{
+                width: auto;
+                display: unset;
+                padding: 0;
+            }
         }
         .buttonMainPage{
-            position:sticky;
-            top:200px;
-            width:350px;
+            position: relative;
+            bottom: 0;
+            width: auto;
+            left: 0;
         }
+    }
        
     .signintoregister{
         position:sticky;
@@ -215,7 +302,156 @@ input[type=text],input[type=password]{
         height: 80px;
         width: 100%;
     }
-    .bodyPart{
+}
 
+@media screen and (max-width: 900px) and (max-height: 560px){
+    .signin{
+        height: 100%;
+        .container{
+            height: 100%;
+        }
+        .bodyPart{
+            position: relative;
+            bottom: 0
+        }
+        .signintoregister{
+            position: relative;
+            bottom: 0;
+        }
+    }
+}
+.registerBody{
+    margin-top: 50px;
+}
+.check-container{
+    width: 90%;
+    margin-left: 5%;
+}
+.gender{
+    width:100%;
+    min-width: 100px;
+    max-width: 200px;
+    height: 176px;
+    border: 1px solid #D6D9E0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: white;
+    .check{
+        text-align: right;
+        margin-right: 19px;
+        margin-top: 16px;
+    }
+    .content{
+        height: 130px;
+        width: 100%;
+    }
+    .content p{
+        color: #2D3142;
+        font-family: SF Pro Text;
+        font-size: 16px;
+        line-height: 14px;
+    }
+}
+.date{
+    *{
+        box-sizing: border-box;
+      }
+      .alignment{
+        margin: 0 auto;
+        padding: 10%;
+        text-align: center;
+      }
+      .alignment_content{
+        width: 400px;
+        margin: 0 auto;
+        overflow-y: hidden;
+        position: relative;
+      }
+
+      .dates div::-webkit-scrollbar {
+        display: none;
+      }
+
+      .hide_it{
+        visibility: hidden;
+      }
+
+      .dates div {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+      .dates{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      .dates div{
+        position: relative;
+        user-select: none;
+        z-index: 1001;
+        transition: 0.1s all;
+        overflow-y: scroll;
+      }
+      .indicator{
+        border-top: 1.4px solid #466c99;
+        border-bottom: 1.4px solid #466c99;
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+      }
+      .level1{
+        font-size: 19px;
+      }
+      .level2{
+        font-size: 16px;
+        opacity: 0.7;
+      }
+      .level3{
+        font-size: 13px;
+        opacity: 0.3;
+      }
+      .dates div{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .dates div span{
+        padding: 10px;
+        transition: 0.2s all;
+      }
+}
+
+.height{
+    overflow:hidden;
+    display: flex;
+    width: 100%;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .pickerPart{
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        font-family: $fontFamily;
+        padding: 10px;
+        border-bottom: 1px solid  #5AC9E9;
+        border-top: 1px solid  #5AC9E9;
+    }
+    .second{
+        color:rgb(109, 109, 109);
+        width: 100px;
+        padding: 5px;
+        font-size: 20px;
+    }
+    .first{
+        color:rgb(179, 178, 178);
+        font-size: 16px;
     }
 }

@@ -7,31 +7,31 @@ import {Zoom} from 'react-reveal'
 import Heading from '../../component/heading/Heading'
 export default function RecovePassword(){
     return(
-        <div className='signin'>
-        <div className='row align-items-center justify-content-center'>
-          <div className='col-12 container'>
-          <Zoom>
-        <div className='logo'>
-           <img src={logo} alt='vitalem'/>
-        </div>   
-        <div className='headingSignin'>
-          <Heading name='Введите почту чтобы восстановить пароль'/>
-        </div>
-        
-        <div className='bodyPart'>
-            <form>
-                <InputText name='Введите почту'/>
-               <Link to='./inforecove'>
-               <BlueButton name='Восстановить'/>
-               </Link>
-            </form>
+      <div className='signin'>
+      <div className='row align-items-center justify-content-center'>
+        <div className='col-12 container'>
+      <div className='logo'>
+         <img src={logo} alt='vitalem'/>
+      </div>   
+      <div className='bodyPart'>
+      <Zoom>
+      <div className='headingSignin'>
+        <Heading name='Введите почту чтобы восстановить пароль'/>
+      </div>
+
+          <form>
+              <InputText name='Введите почту'/>
+              <Link to='./inforecove'>
+              <BlueButton name='Восстановить'/>
+              </Link>
+          </form>
           <Link to='./signin'>
-                <SmallBlueLink link='Вспомнил пароль'/>
+          <SmallBlueLink link='Вспомнил пароль'/>
           </Link>
-        </div>
-        </Zoom>
-        </div>
-    </div>
-   </div>
+      </Zoom>
+      </div>
+      </div>
+  </div>
+ </div>
     )
 }

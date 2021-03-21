@@ -14,7 +14,6 @@ export default function Signin(){
         <div className='logo'>
            <img src={logo} alt='vitalem'/>
         </div>   
-       
         <div className='bodyPart'>
         <Zoom>
         <div className='headingSignin'>
@@ -24,7 +23,11 @@ export default function Signin(){
             <form>
                 <InputText name='Введите почту'/>
                 <InputPassword name='Введите пароль'/>
-                <BlueButton name='Войти'/>
+                
+                <Link to='./signin'>
+               <BlueButton name='Войти'/>
+               </Link>
+               
             </form>
             <Link to='./recovePassword'>
             <SmallBlueLink link='Забыли пароль?'/>
@@ -34,9 +37,8 @@ export default function Signin(){
         </div>
         <div className='signintoregister'>
        <Slide top>
-      
           <p>
-          Нет аккаунта? <Link>Пройдите регистрацию</Link>
+          Нет аккаунта? <Link to='./register_step_1'>Пройдите регистрацию</Link>
           </p>
           <p>
             Получите доступ к онлайн сервису у Вашего врача
@@ -44,8 +46,6 @@ export default function Signin(){
           </p>
           </Slide>
        </div>
-     
-      
         </div>
     </div>
    </div>
