@@ -1,11 +1,15 @@
 import BlueButton from '../../component/button/BlueButton'
 import InputText from '../../component/input/InputText'
 import InputPassword from '../../component/input/InputPassword'
-import {Link,useHistory} from 'react-router-dom'
-// import axios from 'axios'
+import {Link} from 'react-router-dom'
+import qs from 'qs'
+import axios from 'axios'
 import Heading from '../../component/heading/Heading'
 import RegisterNavbar from '../../component/navbar/RegisterNavbar'
 import {useState,useEffect} from 'react'
+if(window.localStorage.getItem("token") != undefined){
+  
+}
 export default function Step1(){
     const [userV, setUserV] = useState({
             name:'',
@@ -13,17 +17,43 @@ export default function Step1(){
             lastname:'',
             phone:''
     })
-    // useEffect(() => {
+    useEffect(() => {
+      let me = "aPM331"
+      if(window.localStorage.getItem("token") != undefined){
+        console.log(window.localStorage.getItem("token"))
+        axios.get("https://cors-anywhere.herokuapp.com/https://t6.gist.kz/api/doctors",
+          {
+            headers:{
+              "Authorization": `Bearer ${window.localStorage.getItem("token")}`,
+            }
+          }
+        )
+        .then((res)=>{
+          console.log(res)
+        })
+        .catch((res)=>{
+          console.log(res)
+        });
+        return;
+      }
+      axios.post("https://cors-anywhere.herokuapp.com/https://t6.gist.kz/api/login",
+          qs.stringify({
+            phone: "+7 707 123 12 23",
+            password: me
+          }),
+          {
+            'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+          }
+        )
+        .then((res)=>{
+          window.localStorage.setItem("token",res.data.token)
+          console.log(res)
+        })
+        .catch((res)=>{
+          console.log(res)
+        });
         
-    //     axios.post("https://t6.gist.kz/api/register",{
-    //         user:{
-    //             name: userV.name,
-    //             surname: userV.surname,
-    //             lastname:userV.lastname,
-    //             phone:userV.phone
-    //         }
-    //       })
-    //   }, [userV]);
+      }, [userV]);
       const changeName = (e)=>{
           e.preventDefault();
         setUserV({...userV,name:e.target.value})
