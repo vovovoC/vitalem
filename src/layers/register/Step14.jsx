@@ -3,20 +3,30 @@ import Heading from '../../component/heading/Heading'
 import {Zoom} from 'react-reveal';
 import '../../styles/button.scss'
 import {useState} from 'react'
-import LifeStyle from '../../component/choose/LifeStyle'
+import Disease from '../../component/choose/Disease'
 import RegisterNavbar from '../../component/navbar/RegisterNavbar'
 import { Link ,useHistory} from 'react-router-dom'
+import doctors from '../../images/doctors.svg'
 
-const arr = [
-    'Считаю, мое питание нездоровым',
-    'Стремлюсь к улучшению питания',
-    'Считаю, что питаюсь правильно'
+const arrDesc = [
+    'Кардиолог',
+    'Гастроэнтеролог',
+    'Терапевт',
+    'Терапевт',
+    'Эндокринолог'
 ];
-export default function Step8(){
+const arrName = [
+    'Еренчина Эльмира Рауфовна',
+    'Тюлебекова Гульнара Касымовна',
+    'Ермакова Ирина Александровна',
+    'Бекжанова Айсулу Лесбековна',
+    'Елемесова Гульжан Фарахатовна'
+];
+export default function Step14(){
     const {goBack} = useHistory();
 const[chooseOne, setChooseOne] = useState({
     chosen:null,
-    objects:[{id:0},{id:1},{id:2}]
+    objects:[{id:0},{id:1},{id:2},{id:3},{id:4}]
 })
 
 const handleState=(index)=>{
@@ -26,14 +36,17 @@ const handleState=(index)=>{
     })
 }
 return(
-    <div className='signin'>
+    <div className='register'>
     <div className='row align-items-center justify-content-center'>
       <div className='col-12 container'>
-      <div onClick={goBack}> <RegisterNavbar name='Регистрация 8 из 9'/></div>
+      <div onClick={goBack}> <RegisterNavbar name='Врачи'/></div>
+      <div className='displayDoctors'>
+        <img src={doctors} alt='vitalem doctors'/>
+    </div>
     <div className='registerBody'>
-    <Zoom>
+    <Zoom> 
         <div className='headingSignin'>
-        <Heading name='Каков характер вашего питания?'/>
+        <Heading name='Выберите персонального врача из числа участников программы VitAlem'/>
         </div>
         <div>
         {  
@@ -43,11 +56,10 @@ return(
                                     onClick={()=>{
                                         handleState(index)
                                         }}>
-                                            <LifeStyle 
-                                                text={arr[index]} 
-                                                choose = {
-                                                    chooseOne.chosen === chooseOne.objects[index]?'allow':'no'
-                                                    }/> 
+                                           <Disease 
+                                                nameDis={arrName[index]} 
+                                                description={arrDesc[index]}
+                                                choose = {chooseOne.chosen === chooseOne.objects[index] ?'allow':'no'}/>   
                                     </div>
                                 ))    
                             }
@@ -55,7 +67,7 @@ return(
     </Zoom>
     </div>
    
-    <div className='signintoregister'>
+    <div className='btn'>
    <Link to='./register_step_9'>
    <BlueButton name='Продолжить'/>
    </Link>

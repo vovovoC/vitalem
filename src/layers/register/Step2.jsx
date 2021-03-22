@@ -5,13 +5,14 @@ import GreenCheck from '../../component/check/GreenCheck'
 import Heading from '../../component/heading/Heading'
 import {Zoom} from 'react-reveal';
 import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-import { Link } from 'react-router-dom'
+import { Link,useHistory } from 'react-router-dom'
 export default function Step2(){
+    const {goBack} = useHistory();
     return(
         <div className='signin'>
         <div className='row align-items-center justify-content-center'>
           <div className='col-12 container'>
-              <RegisterNavbar name='Регистрация 2 из 9'/>
+            <div onClick={goBack}><RegisterNavbar name='Регистрация 2 из 9'/></div>
         <div className='registerBody'>
         <Zoom>
             <div className='headingSignin'>

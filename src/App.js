@@ -13,6 +13,11 @@ import Step5 from './layers/register/Step5';
 import Step7 from './layers/register/Step7';
 import Step8 from './layers/register/Step8';
 import Step9 from './layers/register/Step9';
+import Step10 from './layers/register/Step10';
+import Step11 from './layers/register/Step11';
+import Step12 from './layers/register/Step12';
+import Step13 from './layers/register/Step13';
+import Step14 from './layers/register/Step14';
 function App() {
   return (
     <Router>
@@ -31,6 +36,11 @@ function App() {
             <Route path='/register_step_7' component={Step7}/>
             <Route path='/register_step_8' component={Step8}/>
             <Route path='/register_step_9' component={Step9}/>
+            <Route path='/register_step_10' component={Step10}/>
+            <Route path='/register_step_11' component={Step11}/>
+            <Route path='/register_step_12' component={Step12}/>
+            <Route path='/register_step_13' component={Step13}/>
+            <Route path='/register_step_14' component={Step14}/>
       </Switch>
     </Router>
   );

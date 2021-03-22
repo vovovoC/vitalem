@@ -14,8 +14,15 @@ const arr = [
     'Я участник клинического исследования',
     'Другое'
 ];
-const emp = ''
-export default function Step9(){
+const arrName = [
+    'Атеросклероз',
+    'Врожденные пороки сердца',
+    'Гиперторния - высокое артериальное давление',
+    'Инфекционные эндокардит',
+    'Ишемическая болезнь сердца'
+];
+const emp = 'sad'
+export default function Step13(){
     const {goBack} = useHistory();
     const[ch, setCh] = useState({
         object:[]
@@ -60,7 +67,7 @@ return(
                                         onClick={()=>{
                                            toggle(index)
                                         }}>
-                                           <LifeStyle 
+                                           <LifeStyle
                                                 text={arr[index]} 
                                                 choose = {(toggleAllow(index)||emp.length!==0)?'allow':'no'}
                                                 dis={emp}
@@ -73,7 +80,7 @@ return(
     
     </div>
     <div className='btn'>
-   <Link to='./register_step_5'>
+   <Link to='./register_step_14'>
    <BlueButton name='Продолжить'/>
    </Link>
     </div>

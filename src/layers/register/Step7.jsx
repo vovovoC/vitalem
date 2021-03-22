@@ -5,13 +5,14 @@
     import {useState} from 'react'
     import LifeStyle from '../../component/choose/LifeStyle'
     import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-    import { Link } from 'react-router-dom'
+    import { Link,useHistory } from 'react-router-dom'
 const arr = [
     'Малоподвижный, сидячий',
     'Средней активности',
     'Активный, спортивный'
 ];
 export default function Step7(){
+    const {goBack} = useHistory();
     const[chooseOne, setChooseOne] = useState({
         chosen:null,
         objects:[{id:0},{id:1},{id:2}]
@@ -27,7 +28,7 @@ export default function Step7(){
         <div className='signin'>
         <div className='row align-items-center justify-content-center'>
           <div className='col-12 container'>
-              <RegisterNavbar name='Регистрация 7 из 9'/>
+          <div onClick={goBack}> <RegisterNavbar name='Регистрация 7 из 9'/></div>
         <div className='registerBody'>
         <Zoom>
             <div className='headingSignin'>
