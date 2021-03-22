@@ -6,7 +6,17 @@ import InputPassword from '../../component/input/InputPassword'
 import {Link} from 'react-router-dom'
 import Heading from '../../component/heading/Heading'
 import {Zoom,Slide} from 'react-reveal';
+import { useEffect } from 'react'
 export default function Signin(){
+
+//   const [customerSignUp, setCustomerSignUp] = useState(
+//     { email: '', password: '', firstName: '', lastName: ''}
+// );
+
+// const handleChange = (event) => {
+//     setCustomerSignUp({...customerSignUp, [event.target.name]: event.target.value})
+// }
+
     return(
         <div className='signin'>
         <div className='row align-items-center justify-content-center'>
