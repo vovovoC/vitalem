@@ -1,9 +1,25 @@
 import axios from 'axios'
-const API_URL = 'https://t6.gist.kz/api/';
+import qs from 'qs'
+const API_URL = 'https://cors-anywhere.herokuapp.com/https://t6.gist.kz/api/';
 
-// export const login=()=>{
-
-// }
+export const login = (phoneNumeber, password, callback) => {
+    axios.post(`${API_URL}login`,
+        qs.stringify({
+            phone: phoneNumeber,
+            password: password
+        }),
+        {
+            'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+        }
+    )
+    .then((res)=>{
+        window.localStorage.setItem("token",res.data.token)
+        callback(res)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+}
 
 
 // "name": "Didar",

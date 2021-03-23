@@ -6,41 +6,62 @@ import InputPassword from '../../component/input/InputPassword'
 import {Link} from 'react-router-dom'
 import Heading from '../../component/heading/Heading'
 import {Zoom,Slide} from 'react-reveal';
-import { useEffect } from 'react'
+import { useHistory } from "react-router-dom"
+import { useState } from 'react'
+import {login} from '../../api'
+
 export default function Signin(){
+  let history = useHistory()
 
-//   const [customerSignUp, setCustomerSignUp] = useState(
-//     { email: '', password: '', firstName: '', lastName: ''}
-// );
+  const [customerSignUp, setCustomerSignUp] = useState(
+    { name: '', password: ''}
+  );
+    
+  const changePhone = (e)=>{
+    e.preventDefault();
+    setCustomerSignUp({...customerSignUp,name: e.target.value})
+  }
 
-// const handleChange = (event) => {
-//     setCustomerSignUp({...customerSignUp, [event.target.name]: event.target.value})
-// }
+  const changePassword = (e)=>{
+    e.preventDefault();
+    setCustomerSignUp({...customerSignUp, password: e.target.value})
+  }
 
+  function log(e){
+    e.preventDefault()
+    login(customerSignUp.name, customerSignUp.password, function(res){
+      if(res != undefined){
+        history.push("./profile")
+      }
+    })
+  }
     return(
         <div className='signin'>
         <div className='row align-items-center justify-content-center'>
           <div className='col-12 container'>
-        <div className='logo'>
-           <img src={logo} alt='vitalem'/>
-        </div>   
-        <div className='bodyPart'>
-        <Zoom>
-        <div className='headingSignin'>
-          <Heading name='Войти'/>
-        </div>
+            <div className='logo'>
+              <img src={logo} alt='vitalem'/>
+            </div>   
+          <div className='bodyPart'>
+            <Zoom>
+            <div className='headingSignin'>
+              <Heading name='Войти'/>
+            </div>
 
-            <form>
-                <InputText name='Введите почту'/>
-                <InputPassword name='Введите пароль'/>
+            <form onSubmit={log}>
+                <InputText placeholderText='Введите номер телефона' cb = {changePhone} nameV='name'/>
+                <InputPassword placeholderText='Введите пароль' cb = {changePassword} nameV='password'/>
                 
-                <Link to='./signin'>
-               <BlueButton name='Войти'/>
-               </Link>
+                {/* <Link to='./signin'> */}
+                <div>
+                  <BlueButton name='Войти' />
+                </div>
+                
+                {/* </Link> */}
                
             </form>
             <Link to='./recovePassword'>
-            <SmallBlueLink link='Забыли пароль?'/>
+              <SmallBlueLink link='Забыли пароль?'/>
             </Link>
         
         </Zoom>

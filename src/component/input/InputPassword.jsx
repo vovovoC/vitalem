@@ -1,5 +1,6 @@
 function InputPassword(props){
     const {
+        cb,
         nameV,
         placeholderText
     } = props
@@ -8,6 +9,7 @@ function InputPassword(props){
             type='password' 
             placeholder = {placeholderText} 
             className='input'
+            onChange={cb}
             name={nameV}
         />
     )

@@ -14,6 +14,7 @@ import Step7 from './layers/register/Step7';
 import Step8 from './layers/register/Step8';
 import Step9 from './layers/register/Step9';
 function App() {
+  
   return (
     <Router>
       <Switch>
