@@ -18,6 +18,10 @@ import Step11 from './layers/register/Step11';
 import Step12 from './layers/register/Step12';
 import Step13 from './layers/register/Step13';
 import Step14 from './layers/register/Step14';
+import PageH1 from './layers/health/PageH1';
+import PageSearch from './layers/health/PageSearch';
+import ShareNews from './layers/health/ShareNews';
+import Profile from './layers/profile/Profile';
 function App() {
   return (
     <Router>
@@ -41,6 +45,10 @@ function App() {
             <Route path='/register_step_12' component={Step12}/>
             <Route path='/register_step_13' component={Step13}/>
             <Route path='/register_step_14' component={Step14}/>
+            <Route path='/health' component={PageH1}/>
+            <Route path='/searchInfo' component={PageSearch}/>
+            <Route path='/sharenews' component={ShareNews}/>
+            <Route path='/profile' component={Profile}/>
       </Switch>
     </Router>
   );
