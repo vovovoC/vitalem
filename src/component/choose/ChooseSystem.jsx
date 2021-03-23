@@ -1,26 +1,20 @@
 import '../../styles/button.scss'
 import trueG from '../../images/bluechecked.svg'
 import falseG from '../../images/blueunchecked.svg'
-import {Link} from 'react-router-dom'
-export default function LifeStyle(props){
-    
+export default function ChooseSystem(props){
     const{
         text,
-        dis,
         choose
     } = props
     return(
-        <div className={choose==='allow'?'lifeStyle lg':'lifeStyle'}>
+        <div className='chooseSystem'>
         <div className='row align-items-center'>
             <div className='col-10'>
                   <span>{text}</span>
-                 <div className={dis.length===0? 'none':'linktodis'}>
-                 <Link to='./register_step_12'><span>{dis}</span><i className="fa fa-angle-right"></i></Link>
-                 </div>
             </div>
             <div className='col-2'>
                   <img src={
-                      (choose==='allow' ||dis.length!==0 )? trueG : falseG
+                      choose==='allow'? trueG : falseG
                   } alt='choose'/>
             </div>
         </div>

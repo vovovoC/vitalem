@@ -1,15 +1,13 @@
 import BlueButton from '../../component/button/BlueButton'
 import InputText from '../../component/input/InputText'
 import InputPassword from '../../component/input/InputPassword'
-import {Link} from 'react-router-dom'
+import {Link,useHistory} from 'react-router-dom'
 import qs from 'qs'
 import axios from 'axios'
 import Heading from '../../component/heading/Heading'
 import RegisterNavbar from '../../component/navbar/RegisterNavbar'
 import {useState,useEffect} from 'react'
-if(window.localStorage.getItem("token") != undefined){
-  
-}
+
 export default function Step1(){
     const [userV, setUserV] = useState({
             name:'',
@@ -40,13 +38,13 @@ export default function Step1(){
             phone: "+7 707 123 12 23",
             password: me
           }),
-          {
+          { 
+            "x-requested-with": "xhr",
             'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
           }
         )
         .then((res)=>{
           window.localStorage.setItem("token",res.data.token)
-          console.log(res)
         })
         .catch((res)=>{
           console.log(res)
@@ -73,12 +71,12 @@ export default function Step1(){
     //     e.preventDefault();
     //   setUserV({...userV,phone:e.target.value})
     // }
-
+    const {goBack} = useHistory();
     return(
         <div className='signin'>
         <div className='row align-items-center justify-content-center'>
           <div className='col-12 container'>
-              <RegisterNavbar name='Регистрация 1 из 9'/>
+             <div onClick={goBack}> <RegisterNavbar name='Регистрация 1 из 9'/></div>
         <div className='registerBody'>
             <div className='headingSignin'>
             <Heading name='Зарегистрируйтесь и раскройте секреты своего здоровья'/>
