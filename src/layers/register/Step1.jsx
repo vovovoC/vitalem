@@ -18,7 +18,7 @@ export default function Step1(){
     useEffect(() => {
       let me = "aPM331"
       if(window.localStorage.getItem("token") != undefined){
-        axios.get("https://cors-anywhere.herokuapp.com/https://t6.gist.kz/api/doctors",
+        axios.get("https://cors-anywhere.herokuapp.com/https://t6.gist.kz/api/profile",
           {
             headers:{
               "Authorization": `Bearer ${window.localStorage.getItem("token")}`,

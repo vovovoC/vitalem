@@ -362,6 +362,7 @@ input[type=text],input[type=password]{
     }
 }
 .date{
+    
     *{
         box-sizing: border-box;
       }
@@ -403,8 +404,8 @@ input[type=text],input[type=password]{
         overflow-y: scroll;
       }
       .indicator{
-        border-top: 1.4px solid #466c99;
-        border-bottom: 1.4px solid #466c99;
+        border-top: 1.4px solid #5AC9E9;
+        border-bottom: 1.4px solid #5AC9E9;
         position: absolute;
         top: 50%;
         z-index: 2;
