@@ -4,8 +4,14 @@ import DisType from '../../component/links/DisType'
 import PersonName from './PersonName'
 import Size from './Size'
 import Desc from './Desc'
+import {profile} from '../../api'
 import NavbarInside from '../../component/navbar/NavbarInside'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import qs from 'qs'
+const API_URL = 'https://cors-anywhere.herokuapp.com/https://t6.gist.kz/api/';
 function Profile(){
+    const [profileInfo,setProfileInfo] = useState('')
     const {goBack}=useHistory()
     const arr = [
         'Возраст',
@@ -47,9 +53,10 @@ function Profile(){
         <div className='register'>
         <div className='row align-items-center justify-content-center'>
           <div className='col-12 container'>
-              <div className=' profile'>
+              <div className='profile'>
           <div onClick={goBack}> <NavbarInside name='Мой профиль' prof='prof'/></div>
             <PersonName personName='Коротков Андрей Николаевич' personAge='32 года, мужчина' email='akorotkov@gmail.com'/>
+            <div className='div'></div>
           <div> {
                   arr.map((el, i)=>(
                        <div key={i}>
@@ -58,6 +65,7 @@ function Profile(){
                   ))
             }
            </div>
+           <div className='div'></div>
            <div>
            {
                   arrAim.map((el, i)=>(
@@ -67,7 +75,7 @@ function Profile(){
                   ))
             }
            </div>
-            
+           <div className='div'></div>
           <div>
           {  
                              arrOfThings.map((el, index)=>(
@@ -80,7 +88,7 @@ function Profile(){
                              ))    
             }
           </div>
-         
+          <div className='div'></div>
           <div>
                <Link to='/' style={{textDecoration:'none'}}>
                <DisType nameDis='Выйти из профиля'/></Link>

@@ -20,7 +20,23 @@ export const login = (phoneNumeber, password, callback) => {
         console.log(err)
     })
 }
-
+export const profile =(setProfileInfo)=>{  
+    if(window.localStorage.getItem("token") != undefined){
+        axios.get(`${API_URL}profile`,
+          {
+            headers:{
+              "Authorization": `Bearer ${window.localStorage.getItem("token")}`,
+            }
+          }
+        )
+        .then((res)=>{
+            setProfileInfo(res)
+        })
+        .catch((res)=>{
+          console.log(res)
+        });
+      }
+}
 
 // "name": "Didar",
 // "surname": "Temirkhanov",

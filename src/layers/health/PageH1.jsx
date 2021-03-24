@@ -10,7 +10,6 @@ import {Carousel} from 'react-responsive-carousel'
 import News from "../../component/goto/News";
 import newsI from '../../images/Mask.svg'
 import Footer from "../../component/goto/Footer";
-import ShareNews from "./ShareNews";
 import DisType from '../../component/links/DisType'
 export default function PageH1(){
     const {goBack} = useHistory();

@@ -22,6 +22,9 @@ import PageH1 from './layers/health/PageH1';
 import PageSearch from './layers/health/PageSearch';
 import ShareNews from './layers/health/ShareNews';
 import Profile from './layers/profile/Profile';
+import Recommendation from './layers/profile/Recommendation';
+import Purpose from './layers/profile/Purpose';
+import Passport from './layers/profile/Passport';
 function App() {
   
   return (
@@ -50,6 +53,9 @@ function App() {
             <Route path='/searchInfo' component={PageSearch}/>
             <Route path='/sharenews' component={ShareNews}/>
             <Route path='/profile' component={Profile}/>
+            <Route path='/recommendation' component={Recommendation}/>
+            <Route path='/purpose' component={Purpose}/>
+            <Route path='/passport' component={Passport}/>
       </Switch>
     </Router>
   );
