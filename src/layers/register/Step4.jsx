@@ -4,20 +4,27 @@ import {Zoom} from 'react-reveal';
 import RegisterNavbar from '../../component/navbar/RegisterNavbar'
 import { Link ,useHistory} from 'react-router-dom'
 import ChooseDate from '../../component/choose/date/ChooseDate';
+import { useState } from 'react';
 export default function Step4(){
     const {goBack} = useHistory();
+    const [date,setDate] = useState({
+        month: "january",
+        number: "3",
+        year: "2012"
+    });
+    
     return(
         <div className='signin'>
         <div className='row align-items-center justify-content-center'>
           <div className='col-12 container'>
-             <div conClick={goBack}><RegisterNavbar name='Регистрация 4 из 9'/></div>
+             <div onClick={goBack}><RegisterNavbar name='Регистрация 4 из 9'/></div>
         <div className='registerBody'>
         <Zoom>
             <div className='headingSignin'>
-            <Heading name='Выберите пол '/>
+            <Heading name='Выберите дату рождение '/>
             </div>
             <div>
-                <ChooseDate/>
+                <ChooseDate setDate={setDate} date={date}/>
             </div>
         </Zoom>
         </div>
