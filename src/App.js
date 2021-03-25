@@ -17,6 +17,7 @@ import Step10 from './layers/register/Step10';
 import Step11 from './layers/register/Step11';
 import Step12 from './layers/register/Step12';
 import Step13 from './layers/register/Step13';
+import Step6 from './layers/register/Step6';
 import Step14 from './layers/register/Step14';
 import PageH1 from './layers/health/PageH1';
 import PageSearch from './layers/health/PageSearch';
@@ -43,6 +44,7 @@ function App() {
             <Route path='/register_step_3' component={Step3}/>
             <Route path='/register_step_4' component={Step4}/>
             <Route path='/register_step_5' component={Step5}/>
+            <Route path='/register_step_6' component={Step6}/>
             <Route path='/register_step_7' component={Step7}/>
             <Route path='/register_step_8' component={Step8}/>
             <Route path='/register_step_9' component={Step9}/>
