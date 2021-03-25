@@ -4,7 +4,7 @@ import '../../styles/button.scss'
 import {useState} from 'react'
 import LifeStyle from '../../component/choose/LifeStyle'
 import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-import { Link,useHistory } from 'react-router-dom'
+import { Link,useHistory,useRouteMatch} from 'react-router-dom'
 
 const arr = [
     'Просто оздоровиться и предупредить болезни',
@@ -24,6 +24,7 @@ const arrName = [
 const emp = 'sad'
 export default function Step13(){
     const {goBack} = useHistory();
+    let { path, url } = useRouteMatch();
     const[ch, setCh] = useState({
         object:[]
     })
@@ -80,7 +81,7 @@ return(
     
     </div>
     <div className='btn'>
-   <Link to='./register_step_14'>
+    <Link to={`${url}/register_step_14`}>
    <BlueButton name='Продолжить'/>
    </Link>
     </div>

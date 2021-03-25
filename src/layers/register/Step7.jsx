@@ -5,7 +5,7 @@
     import {useState} from 'react'
     import LifeStyle from '../../component/choose/LifeStyle'
     import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-    import { Link,useHistory } from 'react-router-dom'
+    import { Link,useHistory,useRouteMatch} from 'react-router-dom'
 const arr = [
     'Малоподвижный, сидячий',
     'Средней активности',
@@ -13,6 +13,7 @@ const arr = [
 ];
 export default function Step7(){
     const {goBack} = useHistory();
+    let { path, url } = useRouteMatch();
     const[chooseOne, setChooseOne] = useState({
         chosen:null,
         objects:[{id:0},{id:1},{id:2}]
@@ -55,7 +56,7 @@ export default function Step7(){
         </div>
        
         <div className='signintoregister'>
-       <Link to='./register_step_8'>
+        <Link to={`${url}/register_step_8`}>
        <BlueButton name='Продолжить'/>
        </Link>
         </div>

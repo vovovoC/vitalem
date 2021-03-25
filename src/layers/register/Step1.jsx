@@ -1,7 +1,7 @@
 import BlueButton from '../../component/button/BlueButton'
 import InputText from '../../component/input/InputText'
 import InputPassword from '../../component/input/InputPassword'
-import {Link,useHistory} from 'react-router-dom'
+import {Link,useHistory,useRouteMatch} from 'react-router-dom'
 import qs from 'qs'
 import axios from 'axios'
 import Heading from '../../component/heading/Heading'
@@ -71,6 +71,7 @@ export default function Step1(){
     //     e.preventDefault();
     //   setUserV({...userV,phone:e.target.value})
     // }
+    let { path, url } = useRouteMatch();
     const {goBack} = useHistory();
     return(
         <div className='signin'>
@@ -86,7 +87,7 @@ export default function Step1(){
                 <InputText placeholderText='Фамилия' cb = {changeSurname}/>
                 <InputText placeholderText='Отчество' cb = {changeLastname}/>
                 <InputPassword placeholderText='Введите пароль' nameV='password'/>
-                <Link to='./register_step_2'>
+                <Link to={`${url}/register_step_2`}>
                 <BlueButton name='Далее'/>
                </Link>   
             </form>

@@ -3,7 +3,7 @@ import {Zoom} from 'react-reveal';
 import '../../styles/button.scss'
 import {useState} from 'react'
 import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-import { Link ,useHistory} from 'react-router-dom'
+import { Link ,useHistory,useRouteMatch} from 'react-router-dom'
 import Disease from '../../component/choose/Disease';
 
 const arrDesc = [
@@ -23,6 +23,7 @@ const arrName = [
 
 export default function Step12(){
     const {goBack} = useHistory();
+    let { path, url } = useRouteMatch();
     const[ch, setCh] = useState({
         object:[]
     })
@@ -75,7 +76,7 @@ return(
     </div>
    
     <div className='btn'>
-   <Link to='./register_step_13'>
+    <Link to={`${url}/register_step_13`}>
    <BlueButton name='Выбрать'/>
    </Link>
     </div>

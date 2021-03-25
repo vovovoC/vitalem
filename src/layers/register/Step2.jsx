@@ -5,9 +5,10 @@ import GreenCheck from '../../component/check/GreenCheck'
 import Heading from '../../component/heading/Heading'
 import {Zoom} from 'react-reveal';
 import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-import { Link,useHistory } from 'react-router-dom'
+import { Link,useHistory,useRouteMatch } from 'react-router-dom'
 export default function Step2(){
     const {goBack} = useHistory();
+    let { path, url } = useRouteMatch();
     return(
         <div className='signin'>
         <div className='row align-items-center justify-content-center'>
@@ -32,7 +33,7 @@ export default function Step2(){
         <GreenCheck text='Я согласен(на) с Условиями Конфиденциальности' choose='allow'/>
         <GreenCheck text='Я согласен(на) получать от VitAlem новостные и другие материалы' choose='allow'/>
         </div>
-       <Link to='./register_step_3'>
+        <Link to={`${url}/register_step_3`}>
        <BlueButton name='Продолжить'/>
        </Link>
         </div>

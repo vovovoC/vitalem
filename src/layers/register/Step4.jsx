@@ -2,11 +2,12 @@ import BlueButton from '../../component/button/BlueButton'
 import Heading from '../../component/heading/Heading'
 import {Zoom} from 'react-reveal';
 import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-import { Link ,useHistory} from 'react-router-dom'
+import { Link ,useHistory,useRouteMatch} from 'react-router-dom'
 import ChooseDate from '../../component/choose/date/ChooseDate';
 import { useState } from 'react';
 export default function Step4(){
     const {goBack} = useHistory();
+    let { path, url } = useRouteMatch();
     const [date,setDate] = useState({
         month: "january",
         number: "3",
@@ -30,7 +31,7 @@ export default function Step4(){
         </div>
        
         <div className='signintoregister'>
-       <Link to='./register_step_5'>
+        <Link to={`${url}/register_step_5`}>
        <BlueButton name='Продолжить'/>
        </Link>
         </div>

@@ -2,12 +2,13 @@ import BlueButton from '../../component/button/BlueButton'
 import Heading from '../../component/heading/Heading'
 import {Zoom} from 'react-reveal';
 import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-import { Link ,useHistory} from 'react-router-dom'
+import { Link ,useHistory,useRouteMatch} from 'react-router-dom'
 import HeightChoose from '../../component/choose/height/HeightChoose';
 import { useState } from 'react';
 export default function Step5(){
     const [userHeight, setUserHeight] = useState({});
     const {goBack} = useHistory();
+    let { path, url } = useRouteMatch();
     return(
         <div className='signin'>
         <div className='row align-items-center justify-content-center'>
@@ -25,7 +26,7 @@ export default function Step5(){
         </div>
        
         <div className='signintoregister'>
-       <Link to='./register_step_5'>
+        <Link to={`${url}/register_step_7`}>
        <BlueButton name='Продолжить'/>
        </Link>
         </div>

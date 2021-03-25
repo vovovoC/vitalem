@@ -2,7 +2,7 @@ import BlueButton from '../../component/button/BlueButton'
 import Heading from '../../component/heading/Heading'
 import '../../styles/button.scss'
 import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-import { Link,useHistory} from 'react-router-dom'
+import { Link,useHistory,useRouteMatch} from 'react-router-dom'
 import DisType from '../../component/links/DisType'
 import Search from '../../component/input/Search'
 
@@ -36,6 +36,7 @@ const urlArray = [
 ]
 export default function Step10(){
     const {goBack} =useHistory()
+    let { path, url } = useRouteMatch();
     return(       
 <div className='register'>
 <div className='row align-items-center justify-content-center'>
@@ -58,7 +59,7 @@ export default function Step10(){
             } </div>
         </div>
             <div className='btn'>
-                <Link to='./register_step_11'>
+            <Link to={`${url}/register_step_11`}>
                 <BlueButton name='Продолжить'/>
                 </Link>
             </div>

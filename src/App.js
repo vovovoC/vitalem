@@ -25,6 +25,8 @@ import Profile from './layers/profile/Profile';
 import Recommendation from './layers/profile/Recommendation';
 import Purpose from './layers/profile/Purpose';
 import Passport from './layers/profile/Passport';
+import DisPage from './layers/disease/DisPage';
+import Anketa from './layers/disease/Anketa';
 function App() {
   
   return (
@@ -56,6 +58,8 @@ function App() {
             <Route path='/recommendation' component={Recommendation}/>
             <Route path='/purpose' component={Purpose}/>
             <Route path='/passport' component={Passport}/>
+            <Route path='/disease' component={DisPage}/>
+            <Route path='/anketa' component={Anketa}/>
       </Switch>
     </Router>
   );

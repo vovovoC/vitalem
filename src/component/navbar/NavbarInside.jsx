@@ -6,13 +6,13 @@ export default function NavbarInside({name,prof}){
        <div>
             <div className='navbar'>
             <div className='row align-items-center'>
-                   <div className={prof!=='prof'?'backButton':'none'}>
+                   <div className={(name==='Болезнь' || prof==='prof')?'none':'backButton'}>
                    <img src={back} alt='back'/>
                    </div>
                    <div className='centerText'>
                         <span>{name}</span>
                    </div>
-                   <div className='calendar'>
+                   <div className={name==='Болезнь'?'none':'calendar'}>
                         <img src={prof==='prof'?calendar:share} alt='calendar'/>
                    </div>
             </div>

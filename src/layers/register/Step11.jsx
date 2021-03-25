@@ -5,7 +5,7 @@ import '../../styles/button.scss'
 import {useState} from 'react'
 import ChooseSystem from '../../component/choose/ChooseSystem'
 import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-import { Link ,useHistory} from 'react-router-dom'
+import { Link ,useHistory,useRouteMatch} from 'react-router-dom'
 
 const arr = [
     'Курение и Хроническая обструктивная болезнь легких',
@@ -15,6 +15,7 @@ const arr = [
 
 export default function Step11(){
     const {goBack} = useHistory();
+    let { path, url } = useRouteMatch();
 const[chooseOne, setChooseOne] = useState({
     chosen:null,
     objects:[{id:0},{id:1},{id:2}]
@@ -76,7 +77,7 @@ return(
     </div>
    
     <div className='btn'>
-   <Link to='./register_step_12'>
+    <Link to={`${url}/register_step_12`}>
    <BlueButton name='Принять соглашение'/>
    </Link>
     </div>

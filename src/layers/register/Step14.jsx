@@ -5,7 +5,7 @@ import '../../styles/button.scss'
 import {useState} from 'react'
 import Disease from '../../component/choose/Disease'
 import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-import { Link ,useHistory} from 'react-router-dom'
+import { Link ,useHistory,useRouteMatch} from 'react-router-dom'
 import doctors from '../../images/doctors.svg'
 
 const arrDesc = [
@@ -24,6 +24,7 @@ const arrName = [
 ];
 export default function Step14(){
     const {goBack} = useHistory();
+    let { path, url } = useRouteMatch();
 const[chooseOne, setChooseOne] = useState({
     chosen:null,
     objects:[{id:0},{id:1},{id:2},{id:3},{id:4}]
@@ -68,7 +69,7 @@ return(
     </div>
    
     <div className='btn'>
-   <Link to='./register_step_9'>
+    <Link to={`${url}/health`}>
    <BlueButton name='Продолжить'/>
    </Link>
     </div>
