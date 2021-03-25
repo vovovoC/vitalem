@@ -25,7 +25,7 @@ export default function Step5(){
         </div>
        
         <div className='signintoregister'>
-       <Link to='./register_step_5'>
+       <Link to='./register_step_6'>
        <BlueButton name='Продолжить'/>
        </Link>
         </div>

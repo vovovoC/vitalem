@@ -1,0 +1,53 @@
+@import "variables";
+
+.weight{
+    position: absolute;
+    font-family: $fontFamily;
+    left: 50%;
+    top: 30%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    &_header{
+        display: flex;
+        align-items: center;
+        div{
+            width: 50%;
+            &:nth-child(2){
+                width: 100%;
+                span{
+                    font-size: 25px;
+                    color: black;
+                }
+            }
+            span{
+                font-size: 19px;
+                color: #7a7a7a
+            }
+        }
+    }
+    &_content{
+        height: auto;
+        overflow: auto;
+    }
+    &_inner{
+        display: flex;
+        width: 2000px;
+        margin-top: 10px;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        overflow-x: scroll;
+        align-items: center;
+        
+        div{
+            margin: 0 4px;
+            width: 2px;
+            background-color: #D6D9E0;
+        }
+    }
+    &_inner::-webkit-scrollbar {
+        display: none;
+    }
+}
+.center{
+    background-color: #5AC9E9 !important;
+}
