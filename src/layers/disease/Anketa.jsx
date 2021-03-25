@@ -12,32 +12,38 @@ import Footer from '../../component/goto/Footer'
 import {useState } from 'react';
 export default function Anketa(){
     const {goBack} = useHistory();
+    let current;
     const[count,setCount] = useState(1)
-    const next=()=>{
+    const[components, setComponents] = useState(
+        [<Anketa1/>,
+        <Anketa2/>,
+        <Anketa3/>,
+        <Anketa4/>,
+        <Anketa5/>,
+        <Anketa6/>,
+        <Anketa7/>]
+    )
+    const next=(e)=>{
         if(count<8){
-        setCount(prevCount=>prevCount+1)
+            setCount(prevCount=>prevCount+1)
         }else{
-        setCount(0)
+            setCount(0)
         }  
     }
-    console.log(count)
     return(
         <div className='signin'>
         <div className='row align-items-center justify-content-center'>
           <div className='col-12 container'>
-             <div onClick={goBack}><RegisterNavbar name='Анкета'/></div>
-        <div className='anketaDiv'>
-              <div className={count===1?'':'none'}><Anketa1/></div>
-              <div className={count===2?'':'none'}><Anketa2/></div>
-              <div className={count===3?'':'none'}><Anketa3/></div>
-              <div className={count===4?'':'none'}><Anketa4/></div>
-              <div className={count===5?'':'none'}><Anketa5/></div>
-              <div className={count===6?'':'none'}><Anketa6/></div>
-              <div className={count===7?'':'none'}><Anketa7/></div>
+             <div onClick={() => {
+                 setCount(prevCount => prevCount - 1)
+             }}><RegisterNavbar name='Анкета'/></div>
+        <div className='anketaDiv'> 
              
-              <div className='btns'onClick={()=>{
-                next()
-        }}>
+            <div>{components[count - 1]}</div>
+             
+                <div className='btns'onClick={()=>{
+                    next()
+                }}>
             <BlueButton name='Далее'/>
         </div>
         </div>

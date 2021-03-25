@@ -37,20 +37,20 @@ export default function Step7(){
             </div>
             <div>
             {  
-                                    chooseOne.objects.map((el, index)=>(
-                                        <div 
-                                        key={index}
-                                        onClick={()=>{
-                                            handleState(index)
-                                            }}>
-                                                <LifeStyle 
-                                                    text={arr[index]} 
-                                                    choose = {
-                                                        chooseOne.chosen === chooseOne.objects[index]?'allow':'no'
-                                                        }/> 
-                                        </div>
-                                    ))    
-                                }
+                chooseOne.objects.map((el, index)=>(
+                    <div 
+                        key={index}
+                        onClick={()=>{
+                        handleState(index)
+                        }}>
+                            <LifeStyle 
+                                text={arr[index]} 
+                                choose = {
+                                chooseOne.chosen === chooseOne.objects[index]?'allow':'no'
+                        }/> 
+                    </div>
+                ))    
+            }
             </div>
         </Zoom>
         </div>
