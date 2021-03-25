@@ -33,9 +33,9 @@ function App() {
   return (
     <Router>
       <Switch>
+            <Route path='/' exact component={Main}/>
             <Route path='/signin' component={Signin}/>
             <Route path='/recovePassword' component={RecovePassword}/>
-            <Route path='/' exact component={Main}/>
             <Route path='/inforecove' component={InfoAboutRecove}/>
             <Route path='/savenewpassword' component={SaveRecovedPassword}/>
             <Route path='/infosaved' component={InfoAboutSavedPassword}/>

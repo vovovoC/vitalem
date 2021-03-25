@@ -14,6 +14,7 @@ const arr = [
 export default function Step7(){
     const {goBack} = useHistory();
     let { path, url } = useRouteMatch();
+    const emp = ''
     const[chooseOne, setChooseOne] = useState({
         chosen:null,
         objects:[{id:0},{id:1},{id:2}]
@@ -47,7 +48,9 @@ export default function Step7(){
                                                     text={arr[index]} 
                                                     choose = {
                                                         chooseOne.chosen === chooseOne.objects[index]?'allow':'no'
-                                                        }/> 
+                                                        }
+                                                    dis={emp}
+                                                    /> 
                                         </div>
                                     ))    
                                 }

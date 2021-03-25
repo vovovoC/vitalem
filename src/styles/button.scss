@@ -1144,75 +1144,18 @@ input[type=text],input[type=password]{
         color: #2C2A26;
     }
 }
-.anketaText{
-    max-width: $maxWidth;
-    width: $widthInputs;
-    height:auto;
-    padding: 10px;
-    font-family: $fontFamily;
-    margin-top:1.5vh;
-    font-size:$fontSizeInput;
-    border-radius: 10px;
-    text-decoration: none;
-    .input-sizer {
-        display: inline-grid;
-        vertical-align: top;
-        align-items: center;
-        position: relative;
-        border: solid 1px;
-        padding: .25em .5em;
-        margin: 5px;
-        &.stacked {
-          padding: .5em;
-          align-items: stretch;
-          
-          &::after,
-          input,
-          textarea {
-            grid-area: 2 / 1;
-          }
-        }
-        &::after,
-        input,
-        textarea {
-          width: auto;
-          min-width: 1em;
-          grid-area: 1 / 2;
-          font: inherit;
-          padding: 0.25em;
-          margin: 0;
-          resize: none;
-          background: none;
-          appearance: none;
-          border: none;
-        }
-        span {
-          padding: 0.25em;
-        } 
-        &::after {
-          content: attr(data-value) ' ';
-          visibility: hidden;
-          white-space: pre-wrap;
-        }
-        
-        &:focus-within {
-          outline: solid 1px blue;
-          box-shadow: 4px 4px 0px blue;
-          
-          > span { color: blue; }
-          
-          textarea:focus,
-          input:focus {
-            outline: none;
-          }
-        }
+.grow-wrap{
+      display: grid;
+      width: 90%;
+      margin-left: 5%;
+      grid-auto-rows:minmax(60px ,auto);
+      grid-template-columns: auto;
       }
-}
 .backColor{
     background-color:#E5E5E5;
 }
 .anketas{
-    height: auto;
+    height:70vh;
     width: 100%;
    padding-bottom: 150px;
    overflow-y: scroll;
@@ -1235,11 +1178,21 @@ input[type=text],input[type=password]{
     }
 }
 .anketaDiv{
-    height:auto;
+    height:100%;
     width: 100%;
-    .btns{
-        display: flex;
-        justify-self: center;
-        margin-bottom: 70px;
+    margin-top: 30px;
+    input[type=text]{
+        width: 90%;
+        margin-top: 50px;
+        margin-left: 5%;
+        min-height: 70px;
+        border-radius: 10px;
+        text-align: left;
+        padding: 10px;
+        border:1px solid #BBC3C6;
+    }&::placeholder{
+        text-align: left;
+        text-indent: 10px;
+       
     }
 }

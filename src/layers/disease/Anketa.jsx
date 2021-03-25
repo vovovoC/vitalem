@@ -17,15 +17,23 @@ export default function Anketa(){
         if(count<8){
         setCount(prevCount=>prevCount+1)
         }else{
-        setCount(0)
+        setCount(1)
         }  
+    }
+    const prev=()=>{
+        if(count>1){
+            setCount(prevCount=>prevCount-1)
+        }
+        else{
+            setCount(1)
+        }
     }
     console.log(count)
     return(
         <div className='signin'>
         <div className='row align-items-center justify-content-center'>
           <div className='col-12 container'>
-             <div onClick={goBack}><RegisterNavbar name='Анкета'/></div>
+             <div onClick={prev()}><RegisterNavbar name='Анкета'/></div>
         <div className='anketaDiv'>
               <div className={count===1?'':'none'}><Anketa1/></div>
               <div className={count===2?'':'none'}><Anketa2/></div>

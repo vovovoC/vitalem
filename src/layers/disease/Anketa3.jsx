@@ -1,4 +1,4 @@
-
+import InputAnketa from '../../component/input/InputAnketa'
 export default function Anketa3(){
 
     return(
@@ -8,7 +8,7 @@ export default function Anketa3(){
                 <span>Госпитализация в больницу за последние 2 года (указать причину)</span>
             </div>
             <div>
-                
+                <InputAnketa text='Причина госпитализации'/>
             </div>
             </div>
 

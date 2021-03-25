@@ -3,14 +3,15 @@ import BlueButton from '../../component/button/BlueButton'
 import SmallBlueLink from '../../component/links/SmallBlueLink'
 import InputText from '../../component/input/InputText'
 import InputPassword from '../../component/input/InputPassword'
-import {Link} from 'react-router-dom'
+import {Link, Route} from 'react-router-dom'
 import Heading from '../../component/heading/Heading'
 import {Zoom,Slide} from 'react-reveal';
 import { useHistory } from "react-router-dom"
 import { useState } from 'react'
 import {login} from '../../api'
+import RecovePassword from './RecovePassword'
 
-export default function Signin(){
+export default function Signin({match}){
   let history = useHistory()
 
   const [customerSignUp, setCustomerSignUp] = useState(
@@ -47,20 +48,14 @@ export default function Signin(){
             <div className='headingSignin'>
               <Heading name='Войти'/>
             </div>
-
             <form onSubmit={log}>
                 <InputText placeholderText='Введите номер телефона' cb = {changePhone} nameV='name'/>
                 <InputPassword placeholderText='Введите пароль' cb = {changePassword} nameV='password'/>
-                
-                {/* <Link to='./signin'> */}
                 <div>
                   <BlueButton name='Войти' />
                 </div>
-                
-                {/* </Link> */}
-               
             </form>
-            <Link to='./recovePassword'>
+            <Link to={`./signin/recovePassword`}>
               <SmallBlueLink link='Забыли пароль?'/>
             </Link>
         
