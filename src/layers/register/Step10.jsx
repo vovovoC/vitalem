@@ -1,8 +1,6 @@
-import BlueButton from '../../component/button/BlueButton'
 import Heading from '../../component/heading/Heading'
 import '../../styles/button.scss'
-import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-import { Link,useHistory,useRouteMatch} from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import DisType from '../../component/links/DisType'
 import Search from '../../component/input/Search'
 
@@ -35,13 +33,7 @@ const urlArray = [
     'heart'
 ]
 export default function Step10(){
-    const {goBack} =useHistory()
-    let { path, url } = useRouteMatch();
     return(       
-<div className='register'>
-<div className='row align-items-center justify-content-center'>
-    <div className='col-12 container'>
-        <div onClick={goBack}> <RegisterNavbar name='Управление болезнями'/></div>
         <div className='registerstep'>
             <div className='headingSignin' style={{textAlign:'left'}}>
                 <Heading name='Выберите интересующую Вас болезнь(и) из числа перечисленных органов и систем'/>
@@ -58,13 +50,5 @@ export default function Step10(){
                  ))    
             } </div>
         </div>
-            <div className='btn'>
-            <Link to={`${url}/register_step_11`}>
-                <BlueButton name='Продолжить'/>
-                </Link>
-            </div>
-        </div>
-    </div>
-</div>
     )
 }

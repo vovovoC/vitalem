@@ -1,11 +1,8 @@
-import BlueButton from '../../component/button/BlueButton'
 import Heading from '../../component/heading/Heading'
 import {Zoom} from 'react-reveal';
 import '../../styles/button.scss'
 import {useState} from 'react'
 import Disease from '../../component/choose/Disease'
-import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-import { Link ,useHistory,useRouteMatch} from 'react-router-dom'
 import doctors from '../../images/doctors.svg'
 
 const arrDesc = [
@@ -23,8 +20,6 @@ const arrName = [
     'Елемесова Гульжан Фарахатовна'
 ];
 export default function Step14(){
-    const {goBack} = useHistory();
-    let { path, url } = useRouteMatch();
 const[chooseOne, setChooseOne] = useState({
     chosen:null,
     objects:[{id:0},{id:1},{id:2},{id:3},{id:4}]
@@ -37,10 +32,7 @@ const handleState=(index)=>{
     })
 }
 return(
-    <div className='register'>
-    <div className='row align-items-center justify-content-center'>
-      <div className='col-12 container'>
-      <div onClick={goBack}> <RegisterNavbar name='Врачи'/></div>
+    <div>
       <div className='displayDoctors'>
         <img src={doctors} alt='vitalem doctors'/>
     </div>
@@ -67,15 +59,6 @@ return(
         </div>
     </Zoom>
     </div>
-   
-    <div className='btn'>
-    <Link to={`${url}/health`}>
-   <BlueButton name='Продолжить'/>
-   </Link>
     </div>
-    </div>
-     
-</div>
-</div>
 )
 }

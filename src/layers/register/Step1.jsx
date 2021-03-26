@@ -1,11 +1,7 @@
-import BlueButton from '../../component/button/BlueButton'
 import InputText from '../../component/input/InputText'
-import InputPassword from '../../component/input/InputPassword'
-import {Link,useHistory,useRouteMatch} from 'react-router-dom'
 import qs from 'qs'
 import axios from 'axios'
 import Heading from '../../component/heading/Heading'
-import RegisterNavbar from '../../component/navbar/RegisterNavbar'
 import {useState,useEffect} from 'react'
 
 export default function Step1(){
@@ -63,21 +59,7 @@ export default function Step1(){
         e.preventDefault();
       setUserV({...userV,lastname:e.target.value})
     }
-    // const changePassword=(e)=>{
-    //     e.preventDefault();
-      
-    // }
-    // const changePhone = (e)=>{
-    //     e.preventDefault();
-    //   setUserV({...userV,phone:e.target.value})
-    // }
-    let { path, url } = useRouteMatch();
-    const {goBack} = useHistory();
     return(
-        <div className='signin'>
-        <div className='row align-items-center justify-content-center'>
-          <div className='col-12 container'>
-             <div onClick={goBack}> <RegisterNavbar name='Регистрация 1 из 9'/></div>
         <div className='registerBody'>
             <div className='headingSignin'>
             <Heading name='Зарегистрируйтесь и раскройте секреты своего здоровья'/>
@@ -86,14 +68,7 @@ export default function Step1(){
                 <InputText placeholderText='Имя' cb = {changeName}/>
                 <InputText placeholderText='Фамилия' cb = {changeSurname}/>
                 <InputText placeholderText='Отчество' cb = {changeLastname}/>
-                <InputPassword placeholderText='Введите пароль' nameV='password'/>
-                <Link to={`${url}/register_step_2`}>
-                <BlueButton name='Далее'/>
-               </Link>   
             </form>
         </div>
-        </div>
-    </div>
-   </div>
     )
 }

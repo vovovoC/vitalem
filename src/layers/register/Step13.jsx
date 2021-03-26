@@ -1,11 +1,7 @@
-import BlueButton from '../../component/button/BlueButton'
 import Heading from '../../component/heading/Heading'
 import '../../styles/button.scss'
 import {useState} from 'react'
 import LifeStyle from '../../component/choose/LifeStyle'
-import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-import { Link,useHistory,useRouteMatch} from 'react-router-dom'
-
 const arr = [
     'Просто оздоровиться и предупредить болезни',
     'Похудеть и лучше выглядеть',
@@ -14,17 +10,15 @@ const arr = [
     'Я участник клинического исследования',
     'Другое'
 ];
-const arrName = [
-    'Атеросклероз',
-    'Врожденные пороки сердца',
-    'Гиперторния - высокое артериальное давление',
-    'Инфекционные эндокардит',
-    'Ишемическая болезнь сердца'
-];
+// const arrName = [
+//     'Атеросклероз',
+//     'Врожденные пороки сердца',
+//     'Гиперторния - высокое артериальное давление',
+//     'Инфекционные эндокардит',
+//     'Ишемическая болезнь сердца'
+// ];
 const emp = 'sad'
 export default function Step13(){
-    const {goBack} = useHistory();
-    let { path, url } = useRouteMatch();
     const[ch, setCh] = useState({
         object:[]
     })
@@ -51,10 +45,6 @@ export default function Step13(){
         else return false
     }
 return(
-    <div className='register'>
-    <div className='row align-items-center justify-content-center'>
-      <div className='col-12 container'>
-      <div onClick={goBack}> <RegisterNavbar name='Регистрация 9 из 9'/></div>
     <div className='registerstep'>
         <div className='headingSignin'>
         <Heading name='Каковы Ваши цели касательно здоровья?'/>
@@ -80,13 +70,5 @@ return(
         </div>
     
     </div>
-    <div className='btn'>
-    <Link to={`${url}/register_step_14`}>
-   <BlueButton name='Продолжить'/>
-   </Link>
-    </div>
-    </div>
-     </div>
-</div>
 )
 }

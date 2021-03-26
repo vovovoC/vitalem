@@ -10,8 +10,9 @@ import { useHistory } from "react-router-dom"
 import { useState } from 'react'
 import {login} from '../../api'
 import RecovePassword from './RecovePassword'
+import InputPhone from '../../component/input/InputPhone'
 
-export default function Signin({match}){
+export default function Signin({path}){
   let history = useHistory()
 
   const [customerSignUp, setCustomerSignUp] = useState(
@@ -49,13 +50,13 @@ export default function Signin({match}){
               <Heading name='Войти'/>
             </div>
             <form onSubmit={log}>
-                <InputText placeholderText='Введите номер телефона' cb = {changePhone} nameV='name'/>
+                <InputPhone placeholderText='Введите номер телефона' cb = {changePhone} nameV='name'/>
                 <InputPassword placeholderText='Введите пароль' cb = {changePassword} nameV='password'/>
                 <div>
                   <BlueButton name='Войти' />
                 </div>
             </form>
-            <Link to={`./signin/recovePassword`}>
+            <Link to={`${path}/recovePassword`}>
               <SmallBlueLink link='Забыли пароль?'/>
             </Link>
         

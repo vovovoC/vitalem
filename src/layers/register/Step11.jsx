@@ -1,12 +1,8 @@
-import BlueButton from '../../component/button/BlueButton'
 import Heading from '../../component/heading/Heading'
 import {Zoom} from 'react-reveal';
 import '../../styles/button.scss'
 import {useState} from 'react'
 import ChooseSystem from '../../component/choose/ChooseSystem'
-import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-import { Link ,useHistory,useRouteMatch} from 'react-router-dom'
-
 const arr = [
     'Курение и Хроническая обструктивная болезнь легких',
     'Исследование устройств mHealth',
@@ -14,8 +10,6 @@ const arr = [
 ];
 
 export default function Step11(){
-    const {goBack} = useHistory();
-    let { path, url } = useRouteMatch();
 const[chooseOne, setChooseOne] = useState({
     chosen:null,
     objects:[{id:0},{id:1},{id:2}]
@@ -38,10 +32,6 @@ const allowArr = [
 ];
 
 return(
-    <div className='register'>
-    <div className='row align-items-center justify-content-center'>
-      <div className='col-12 container'>
-      <div onClick={goBack}> <RegisterNavbar name='Клиническое исследование'/></div>
     <div className='registerBody'>
     <Zoom>
         <div className='headingSignin' style={{textAlign:'left'}}>
@@ -75,15 +65,5 @@ return(
         </div>
     </Zoom>
     </div>
-   
-    <div className='btn'>
-    <Link to={`${url}/register_step_12`}>
-   <BlueButton name='Принять соглашение'/>
-   </Link>
-    </div>
-    </div>
-     
-</div>
-</div>
 )
 }

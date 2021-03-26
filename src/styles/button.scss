@@ -36,6 +36,24 @@ input[type=text],input[type=password]{
         font-size: 14px;
     }
 }
+.phone{
+    max-width: $maxWidth;
+    width: $widthInputs;
+    height:$heightInputs;
+    font-family: $fontFamily;
+    margin-top:1.5vh;
+    font-size:$fontSizeInput;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    text-align: center;
+    outline: none;
+    &:placeholder{
+        color: #BBC3C6;
+        font-family: $fontFamily;
+        font-size: 14px;
+    }
+}
 .navbar{
     height:56px;
     width: 100%;
@@ -94,6 +112,7 @@ input[type=text],input[type=password]{
 .greenAllow{
     text-decoration: none;
     text-align: left;
+    margin: 10px 0px;
     .row,.col-1,.col-11{
         padding: 0;
         margin: 0;
@@ -108,8 +127,8 @@ input[type=text],input[type=password]{
     span{
         display: flex;
         height: auto;
-        width: 90%;
-        padding-left: 5px;
+        width: 92%;
+        padding-left: 10px;
         font-weight: 590;
         font-size: 14px;
         align-items: center;
@@ -336,11 +355,23 @@ input[type=text],input[type=password]{
         }
     }
 }
+.bt{
+    position: fixed;
+    bottom: 20px;
+    height: 80px;
+    background:linear-gradient(to bottom, rgba(253, 253, 253, 0.157), rgba(255,255,255,1));
+    width: 100%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .registerBody{
-    margin-top: 50px;
+    margin-top: 60px;
 }
 .check-container{
     width: 90%;
+    margin-top: 50px;
     margin-left: 5%;
 }
 .gender{
@@ -1157,8 +1188,8 @@ input[type=text],input[type=password]{
 .anketas{
     height:70vh;
     width: 100%;
-   padding-bottom: 150px;
-   overflow-y: scroll;
+    padding: 30px 0px 50px 0px;
+    overflow-y: scroll;
     .texts{
             line-height: 24px;
             text-align: center;
@@ -1175,12 +1206,25 @@ input[type=text],input[type=password]{
             font-size: 16px;
             color: #2C2A26;
         }
+       
     }
+   
+}
+.btns{
+    position: fixed;
+    bottom: 60px;
+    height: 80px;
+    background:linear-gradient(to bottom, rgba(253, 253, 253, 0.157), rgba(255,255,255,1));
+    width: 100%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .anketaDiv{
     height:100%;
     width: 100%;
-    margin-top: 30px;
+    // margin-top: 30px;
     input[type=text]{
         width: 90%;
         margin-top: 50px;
@@ -1195,4 +1239,10 @@ input[type=text],input[type=password]{
         text-indent: 10px;
        
     }
+}
+.registerBodyContent{
+    height:85vh;
+    width: 100%;
+    padding: 0px 0px 50px 0px;
+    overflow-y: scroll;
 }

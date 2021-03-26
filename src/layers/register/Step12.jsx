@@ -1,9 +1,6 @@
-import BlueButton from '../../component/button/BlueButton'
 import {Zoom} from 'react-reveal';
 import '../../styles/button.scss'
 import {useState} from 'react'
-import RegisterNavbar from '../../component/navbar/RegisterNavbar'
-import { Link ,useHistory,useRouteMatch} from 'react-router-dom'
 import Disease from '../../component/choose/Disease';
 
 const arrDesc = [
@@ -22,8 +19,6 @@ const arrName = [
 ];
 
 export default function Step12(){
-    const {goBack} = useHistory();
-    let { path, url } = useRouteMatch();
     const[ch, setCh] = useState({
         object:[]
     })
@@ -50,10 +45,6 @@ export default function Step12(){
         else return false
     }
 return(
-    <div className='register'>
-    <div className='row align-items-center justify-content-center'>
-      <div className='col-12 container'>
-      <div onClick={goBack}> <RegisterNavbar name='Сердце и сосуды'/></div>
     <div >
     <Zoom>
         <div>
@@ -74,15 +65,5 @@ return(
         </div>
     </Zoom>
     </div>
-   
-    <div className='btn'>
-    <Link to={`${url}/register_step_13`}>
-   <BlueButton name='Выбрать'/>
-   </Link>
-    </div>
-    </div>
-     
-</div>
-</div>
 )
 }
