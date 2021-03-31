@@ -15,7 +15,7 @@
     background-color:$backgroundColor;
     cursor: pointer;
     border:none;
-    width:95vw;
+    width:100vw;
     color:white;
 }
 .buttonRedSubmit{
@@ -234,8 +234,7 @@ input[type=text],input[type=password]{
 .signin{
     margin-top: 60px;
     height: auto;
-    width: 96%;
-    margin-left: 2%;
+    width: 100%;
     overflow: hidden;
     .row,.col-10,.col-12{
         padding: 0;
@@ -357,7 +356,7 @@ input[type=text],input[type=password]{
 }
 .bt{
     position: fixed;
-    bottom: 20px;
+    bottom: 0;
     height: 80px;
     background:linear-gradient(to bottom, rgba(253, 253, 253, 0.157), rgba(255,255,255,1));
     width: 100%;
@@ -511,8 +510,8 @@ input[type=text],input[type=password]{
     height: auto;
     margin-right:0;
     margin-left:0;
-    padding: 10px;
-    font-family: SF Pro Text;
+    padding: 5px;
+    font-family: $fontFamily;
     box-sizing: border-box;
     display: inline-block; 
     margin-top:16px;
@@ -548,6 +547,10 @@ input[type=text],input[type=password]{
         i{
             font-size: 18px;
         }
+    }
+    .clinic{
+        height: 80px;
+        width: auto;
     }
    
 }
@@ -1175,20 +1178,24 @@ input[type=text],input[type=password]{
         color: #2C2A26;
     }
 }
-.grow-wrap{
-      display: grid;
-      width: 90%;
-      margin-left: 5%;
-      grid-auto-rows:minmax(60px ,auto);
-      grid-template-columns: auto;
-      }
+.dateList{
+    width:100%;
+    padding: 0;
+    height: auto;
+    border-bottom: 0.2px solid #E5E5E5;
+}
+.dateList_{
+    width:100%;
+    padding: 0;
+    height: auto;
+}
 .backColor{
     background-color:#E5E5E5;
 }
 .anketas{
-    height:70vh;
+    height:auto;
     width: 100%;
-    padding: 30px 0px 50px 0px;
+    padding: 30px 0px 150px 0px;
     overflow-y: scroll;
     .texts{
             line-height: 24px;
@@ -1206,9 +1213,7 @@ input[type=text],input[type=password]{
             font-size: 16px;
             color: #2C2A26;
         }
-       
-    }
-   
+    } 
 }
 .btns{
     position: fixed;
@@ -1224,11 +1229,9 @@ input[type=text],input[type=password]{
 .anketaDiv{
     height:100%;
     width: 100%;
-    // margin-top: 30px;
     input[type=text]{
-        width: 90%;
+        width: 100%;
         margin-top: 50px;
-        margin-left: 5%;
         min-height: 70px;
         border-radius: 10px;
         text-align: left;
@@ -1239,10 +1242,101 @@ input[type=text],input[type=password]{
         text-indent: 10px;
        
     }
+    .form{
+        width: 100%;
+        height: auto;
+    }
+    .enterDateList{
+        font-family:$fontFamily;
+        font-size: 16px;
+        height: 40px;
+        justify-content: flex-start;
+        padding-left: 5%;
+        align-items: center;
+        display: flex;
+        position:fixed;
+        bottom:120px;
+        width: 100%;
+        border-top: 1px solid #BBC3C6;
+    }
+    .empty{
+        color: #BBC3C6;
+    }
+    .filled{
+        color:#007AFF;
+    }
 }
 .registerBodyContent{
     height:85vh;
     width: 100%;
     padding: 0px 0px 50px 0px;
     overflow-y: scroll;
+}
+.inputDate{
+    display: flex;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    height: auto;
+    align-items: center;
+    justify-content: space-between;
+    .span{
+        font-family:$fontFamily;
+        font-size: 16px;
+        line-height: 40px;
+        color: #2D3142;
+    }
+    .dateP{
+            display: flex;
+            flex-direction: row;
+            align-items: center;     
+    }
+    .pickDate{
+        width:100px;
+        height:22px;
+        font-size: 14px;
+        border:none;
+        color:#0B8BD2;
+    }::placeholder{
+    color:#d4d4d4;
+    }
+    i{
+        font-size: 20px;
+    }
+    .pickNumber{
+        width:50px;
+        height:22px;
+        font-size: 14px;
+        border:none;
+        color:#0B8BD2;
+    }::placeholder{
+        color:#d4d4d4;
+        }
+}
+.dis_n{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0649626);
+    text-align: left;
+    .inputDate{
+        max-width: 343px;
+        width: 90%;
+        margin-left: 6%;
+    }
+}
+.dis_p{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    .disChoose{
+        max-width: 343px;
+       width: 90%;
+       margin-left: 5%;
+       height: auto;
+    }
+}
+.dis_p:last-child{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0649626);
 }

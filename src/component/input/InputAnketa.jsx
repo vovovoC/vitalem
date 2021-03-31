@@ -1,7 +1,11 @@
-export default function InputAnketa({text}){
+export default function InputAnketa({text,cb}){
     return(
-      <div className='grow-wrap'>
-            <input type='text' placeholder={text}/>
-      </div>
+            <input 
+              type='text'
+              name='anketa' 
+              placeholder={text}
+              className='input'
+              onChange={(e)=>{cb(e)}}
+            />
     )
 }

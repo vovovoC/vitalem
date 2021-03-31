@@ -20,7 +20,7 @@ export default function HeightChoose(props){
     useEffect(()=>{
         if(center === 0)
             setCenter(Math.abs(ref.current["content"].current.offsetWidth / (ref.current["line"].current.offsetWidth + 8)) / 2)
-    })
+    },[center])
 
     const handleChange = () =>{
         const new_ar = array.map((item)=>{

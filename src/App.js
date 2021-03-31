@@ -15,10 +15,11 @@ import Passport from './layers/profile/Passport';
 import DisPage from './layers/disease/DisPage';
 import Anketa from './layers/disease/Anketa';
 import Register from './layers/register/Register';
+import Clinic from './layers/doctor/Clinic';
 function App() {
   
   return (
-    <Router>
+    <Router> 
       <Switch>
             <Route path='/' exact component={Main}/>
             <Route path='/signin' component={Signin}/>
@@ -36,6 +37,7 @@ function App() {
             <Route path='/passport' component={Passport}/>
             <Route path='/disease' component={DisPage}/>
             <Route path='/anketa' component={Anketa}/>
+            <Route path='/doctor' component={Clinic}/>
       </Switch>
     </Router>
   );

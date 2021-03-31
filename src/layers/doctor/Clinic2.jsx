@@ -3,7 +3,8 @@ import {useHistory} from 'react-router-dom'
 import { useState} from "react";
 import '../../styles/button.scss'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-function Passport(){
+import RegisterNavbar from "../../component/navbar/RegisterNavbar";
+export default function Clinic2({nameClinics,imgClinics}){
  const {goBack} = useHistory()
    const textActive=
    [
@@ -23,37 +24,22 @@ const textInactive = [
 '- В биохимическом анализе крови незначительное повышение магния 1,07 ммоль/л, при норме 0,73-1,06 ммоль/л. Данное ....;']
 const [active,setActive] = useState(true)
     return(
-        <div className='register'>
-        <div className='row align-items-center justify-content-center'>
-          <div className='col-12 container'>
-          <div onClick={goBack}> <NavbarInside name='Паспорт здоровья' prof='rof'/></div>
-                    <div className='scrollButton'>
-                    <button onClick={()=>{
-                        setActive(!active)
-                    }}
-                    className={active?'active': 'notactive'}
-                    >Рекомендации</button>
-                    <button
-                    onClick={()=>{
-                        setActive(!active)
-                    }}
-                    className={active ?'notactive': 'active'}
-                    >Заключение</button>
-                </div>
+    <div className='register'>
+    <div className='row align-items-center justify-content-center'>
+        <div className='col-12 container'>
+          <div onClick={goBack}><RegisterNavbar name={nameClinics}/></div>
+            <div className='logoClinic'>
             
               <div className='textDiv'>     
                      {
-                         !active? textActive.map((el,i)=>(
+                         textActive.map((el,i)=>(
                              <p key={i}>{textActive[i]}</p>
-                         )):textInactive.map((el,i)=>(
-                             <p key={i}>{textInactive[i]}</p>
                          ))
                      }
-                   </div>
-                    </div>
-                </div>
-             
-       </div> 
+            </div>
+        </div>
+    </div> 
+    </div>
+    </div> 
     )
 }
-export default Passport;

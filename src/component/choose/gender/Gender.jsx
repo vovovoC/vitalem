@@ -4,9 +4,17 @@ import female from '../../../images/female.svg'
 import {useState} from 'react'
 import falseG from '../../../images/blueunchecked.svg'
 import trueG from '../../../images/bluechecked.svg'
-function Gender(){
+function Gender({setGender}){
     const [m, setM] = useState(false);
     const [fm, setFm] = useState(false);
+    const changeGender=()=>{
+        if(m){
+         setGender('male')
+        }
+        else{
+            setGender('female')
+        }
+    }
     return(
             <div className='row justify-content-center'>
                             <div className='col-6 col-sm-5'>

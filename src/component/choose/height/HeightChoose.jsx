@@ -14,7 +14,7 @@ export default function HeightChoose(props){
     useEffect(()=>{
         setHeight(ref.current.offsetHeight)
         setDateHeight(ref.current.offsetHeight * 5)
-    })
+    },[height,heightOfDate])
     const setIndicatorHeight = {
         height: `${height}px`
     }

@@ -1,19 +1,16 @@
 import InputMask from "react-input-mask";
-export default function InputPhone(props){
+export default function InputNumber(props){
     const {
         cb,
-        placeholderText,
-        nameV
+        placeholderText
     } = props
     return(
         <InputMask
-        mask="+7 999 999 99 99"
         maskChar={null}
         onChange={(e)=>{
             cb(e)
         }}
-        name={nameV}
-        className='phone'
+        className='pickNumber'
         placeholder={placeholderText}
       />
     )

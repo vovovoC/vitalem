@@ -1,7 +1,7 @@
 import AboutInfo from "../../component/choose/AboutInfo"
 import {useState} from 'react'
-
-export default function Anketa2(){
+import BlueButton from '../../component/button/BlueButton'
+export default function Anketa2({next}){
     const arr = [
         'Аортоконарное шунтирование',
         'Стентирование коронарных сосудов сердца',
@@ -30,9 +30,10 @@ const handleState=(index)=>{
                 <span>Какие были хирургические вмешательства?</span>
             </div>
             <div>
-            <div>
+            <form>
         {chooseOne.objects.map((el, index)=>(
                    <div 
+                       className='form'
                         key={index}
                         onClick={()=>{
                          handleState(index)
@@ -47,10 +48,12 @@ const handleState=(index)=>{
                   </div>
            )) 
         }   
-                 
-            </div>
-            </div>
-            </div>
-
-    )
-}
+              <div className='btns'onClick={()=>{
+                next()
+            }}>
+        <BlueButton name='Далее'/>
+    </div>   
+    </form>
+    </div>
+</div>
+)}

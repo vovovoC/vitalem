@@ -1,16 +1,11 @@
 import InputAnketa from '../../component/input/InputAnketa'
 import BlueButton from '../../component/button/BlueButton'
 import { useState } from 'react'
-import InputNumber from '../../component/input/InputNumber'
-export default function Anketa3({next}){
+export default function Anketa8({next}){
 const[list,setList] = useState({
-    med:'',
-    numberOf:''
+    med:''
 })
-const handleList = (e)=>{
-    e.preventDefault();
-    setList({...list,numberOf:e.target.value});
-}
+
 const changeInput=(e)=>{
     e.preventDefault();
     setList({...list,med:e.target.value});
@@ -25,16 +20,12 @@ function reg(e){
     return(
         <div className='anketas'>
             <div className='texts'>
-            <p>Вопрос 4 из 7</p>
-                <span>Какие лекарства принимаете в настоящее время?</span>
+            <p>Вопрос 7 из 7</p>
+                <span>Укажите кем вам приходиться родственник ( брат, сестра, отец или др.)</span>
             </div>
            <form onSubmit={(e)=>{reg(e)}}>
-                <div className='dateList'>
+                <div className='dateList_'>
                 <InputAnketa text='' cb={(e)=>{changeInput(e)}}/>
-                <div className='inputDate'>
-                    <span className='span'>Сколько таблеток в день</span>
-                    <InputNumber cb={(e)=>{handleList(e)}} placeholderText='0'/>
-                </div>
                 </div>
            <div className='btns'>
                 <BlueButton name='Далее'/>

@@ -3,12 +3,31 @@ import InputPassword from '../../component/input/InputPassword'
 import GreenCheck from '../../component/check/GreenCheck'
 import Heading from '../../component/heading/Heading'
 import {useState} from 'react'
-export default function Step2(){
+import {profile} from '../../api'
+import BlueButton from '../../component/button/BlueButton'
+export default function Step2({increase}){
+    const [userV,setUserV] = useState({
+        email:'',
+        password:'',
+        confirmPassword:''
+    })
     const arr =[
         'Я согласен(на) с Условиями Лицензионного и Сервисного Соглашения VitAlem',
         'Я согласен(на) с Условиями Конфиденциальности',
         'Я согласен(на) получать от VitAlem новостные и другие материалы'
     ]
+    const changeEmail=(e)=>{
+        e.preventDefault();
+        setUserV({...userV,email:e.target.value})
+    }
+    const changePrevPassword=(e)=>{
+        e.preventDefault();
+        setUserV({...userV,prevPassword:e.target.value})
+    }
+    const changeConfirmPassword=(e)=>{
+        e.preventDefault();
+        setUserV({...userV,confirmPassword:e.target.value})
+    }
     const[ch, setCh] = useState({
         object:[]
     })
@@ -34,15 +53,27 @@ export default function Step2(){
         if(ch.object.includes(index)) return true
         else return false
     }
+    function reg(e){
+        e.preventDefault()
+        profile(userV.email,userV.password, userV.confirmPassword,function(res){
+          if(res != undefined){
+            increase()
+          }
+        })
+      }
+      
     return(
     <div className='registerBody'>
             <div className='headingSignin'>
             <Heading name='Создайте учетную запись'/>
             </div>
-            <form>
-                <InputText placeholderText='Введите электронную почту' nameV='email'/>
-                <InputPassword placeholderText='Придумайте пароль' nameV='password'/>  
-                <InputPassword placeholderText='Повторите пароль' nameV='password'/>  
+            <form onSubmit={reg}>
+                <InputText placeholderText='Введите электронную почту' nameV='email' cb={changeEmail}/>
+                <InputPassword placeholderText='Придумайте пароль' nameV='password' cb={changePrevPassword}/>  
+                <InputPassword placeholderText='Повторите пароль' nameV='password' cb={changeConfirmPassword}/> 
+                <div className='bt'>
+                <BlueButton name='Далее'/>
+                </div> 
             </form>
             <div className='check-container'>
             {  

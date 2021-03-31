@@ -9,7 +9,7 @@ function InputPassword(props){
             type='password' 
             placeholder = {placeholderText} 
             className='input'
-            onChange={cb}
+            onChange={(e)=>{cb(e)}}
             name={nameV}
         />
     )
