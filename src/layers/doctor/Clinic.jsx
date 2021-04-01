@@ -72,10 +72,10 @@ return(
         </div>
     </div>
    
-    <div className='bt' onClick={(e)=>{
-     
-    }}> 
-        <BlueButton name='Продолжить'/>
+    <div className='bt'>
+        <Link to={`/clinic/${chooseOne.chosen + 1}`}>
+            <BlueButton name='Продолжить'/>
+        </Link> 
     </div>
     </div>
     </div>
