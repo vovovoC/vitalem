@@ -34,10 +34,6 @@ export default function ChooseAnketa({name,arrayOf = []}){
             return;
         }
     }
-    const toggleAllow=(index)=>{
-        if(ch.object.includes(index)) return true
-        else return false
-    }
     return(
         <div>
         <div className='headerName'>

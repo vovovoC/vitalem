@@ -41,7 +41,7 @@ export const register  = (phoneNumeber, name_,surname_, lastname_,callback) => {
   })
 }
 export const profile =(setProfileInfo)=>{  
-    if(window.localStorage.getItem("token") != undefined){
+    if(window.localStorage.getItem("token") !== undefined || window.localStorage.getItem("token") !== 'undefined'){
         axios.get(`${API_URL}profile`,
           {
             headers:{

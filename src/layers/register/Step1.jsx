@@ -1,10 +1,8 @@
 import InputText from '../../component/input/InputText'
 import InputPhone from '../../component/input/InputPhone'
 import BlueButton from '../../component/button/BlueButton'
-import qs from 'qs'
-import axios from 'axios'
 import Heading from '../../component/heading/Heading'
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 import { register } from '../../api'
 
 export default function Step1({increase=[]}){

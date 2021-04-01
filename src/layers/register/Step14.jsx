@@ -22,7 +22,7 @@ const arrName = [
 export default function Step14(){
 const[chooseOne, setChooseOne] = useState({
     chosen:null,
-    objects:[{id:0},{id:1},{id:2},{id:3},{id:4}]
+    objects:[0,1,2,3,4]
 })
 
 const handleState=(index)=>{

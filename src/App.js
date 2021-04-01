@@ -16,6 +16,8 @@ import DisPage from './layers/disease/DisPage';
 import Anketa from './layers/disease/Anketa';
 import Register from './layers/register/Register';
 import Clinic from './layers/doctor/Clinic';
+import Clinic2 from './layers/doctor/Clinic2';
+import Clinic3 from './layers/doctor/Clinic3';
 function App() {
   
   return (
@@ -38,6 +40,8 @@ function App() {
             <Route path='/disease' component={DisPage}/>
             <Route path='/anketa' component={Anketa}/>
             <Route path='/doctor' component={Clinic}/>
+            <Route path='/doctor2' component={Clinic2}/>
+            <Route path='/doctor3' component={Clinic3}/>
       </Switch>
     </Router>
   );

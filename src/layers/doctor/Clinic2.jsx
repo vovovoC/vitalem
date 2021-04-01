@@ -1,11 +1,15 @@
-import NavbarInside from "../../component/navbar/NavbarInside";
+import Footer from '../../component/goto/Footer'
 import {useHistory} from 'react-router-dom'
 import { useState} from "react";
+import BlueButton from '../../component/button/BlueButton'
 import '../../styles/button.scss'
+import  imgClinics from '../../images/Logo.svg'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import RegisterNavbar from "../../component/navbar/RegisterNavbar";
-export default function Clinic2({nameClinics,imgClinics}){
+import InfoClinics from "../../component/goto/InfoClinics";
+export default function Clinic2(){
  const {goBack} = useHistory()
+ var nameClinics = ''
    const textActive=
    [
 '- Соблюдать здоровый образ жизни: ежедневная пешая ходьба минимум 30 минут, занятие спортом (плавание, йога) 3 раза в неделю минимум по 1 часу, полноценный сон, не менее 7 часов, стараться засыпать и просыпаться в одно и то же время.',
@@ -17,27 +21,60 @@ export default function Clinic2({nameClinics,imgClinics}){
 '- Повторить анализы на гормоны щитовидной железы: ТТГ, Т3 свободный, Т4 свободный через 2 месяца.',
 '- Повторить УЗИ щитовидной железы через 6 месяцев.',
 '- Повторить МРТ брюшной полости с в/в контрастированием через 6 месяцев.']
-const textInactive = [
-'- Опухолевидное образование среднего пальца справа, больше данных за суставную кисту. Данное состояние встречается часто, является доброкачественным процессом. Основной причиной возникновения считается ежедневная нагрузка - травматизация (ручкой в процессе писания). Не исключен рост, однако на данный момент хирургическое вмешательство не требуется. Рекомендуется Рентгенография сустава с последующей консультацией ортопеда-травматолога',
-'- Был осмотрен ЛОР врачом по поводу образования жидкости в раковине правого уха. В ходе осмотра была выявлена трещина, в связи с чем было накопление геморрагической жидкости в раковине. Жидкость была пунктирована. Дальнейшее наблюдение у Лор –врача.',
-'- В общем анализе крови незначительное повышение гемоглобина крови – 162 г/л, при норме 130-160 г/л. Повышение незначительное, клинической значимости не несет. В норме встречается у лиц употребляющих недостаточное количество жидкости, а также у курящих. Поэтому рекомендуется бросить курить и ежедневно употреблять чистой негазированной воды до 2 литров в сутки',
-'- В биохимическом анализе крови незначительное повышение магния 1,07 ммоль/л, при норме 0,73-1,06 ммоль/л. Данное ....;']
 const [active,setActive] = useState(true)
+const infoCl = {
+    i1:{
+        text:'www.vitalem.kz/clinic',
+        desc:'Веб сайт'
+    },
+    i2:{
+        text:'www.vitalem.kz/clinic',
+        desc:'Веб сайт'
+    },
+    i3:{
+        text:'www.vitalem.kz/clinic',
+        desc:'Веб сайт'
+    }
+}
+console.log(Object.keys(infoCl))
     return(
     <div className='register'>
     <div className='row align-items-center justify-content-center'>
         <div className='col-12 container'>
           <div onClick={goBack}><RegisterNavbar name={nameClinics}/></div>
             <div className='logoClinic'>
-            
-              <div className='textDiv'>     
+                <div className='row align-items-center'>
+                    <div className='col-3'>
+                            <img src={imgClinics} alt={nameClinics}/>
+                    </div>
+                    <div className='col-9'>
+
+                    </div>
+                </div>
+                <div className='row'>
+                            <p>Мы раскрываем секреты здоровья и помогаем управлять болезнями </p>
+                    </div>
+            </div>
+            <div className='hr-div'></div>
+            <div className='textDiv'>     
                      {
                          textActive.map((el,i)=>(
                              <p key={i}>{textActive[i]}</p>
                          ))
                      }
             </div>
-        </div>
+            <div className='hr-div'></div>
+            <div>
+                {
+                     Object.keys(infoCl).map((el,index)=>(
+                         <InfoClinics key={index} blue={'dfvbghn'} desc={'cdvfdbg'}/>
+                     ))
+                }
+            </div>
+            <div className='redBtn'>
+             <BlueButton name='Записаться на прием'/>
+             </div>
+             <Footer activeStatus='3'/> 
     </div> 
     </div>
     </div> 

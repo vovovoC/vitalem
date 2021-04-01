@@ -1,10 +1,34 @@
 import logo from '../../images/Logo.svg'
 import BlueButton from '../../component/button/BlueButton'
 import InputPassword from '../../component/input/InputPassword'
-import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import Heading from '../../component/heading/Heading'
-import {Zoom} from 'react-reveal';
+import { useState } from 'react'
 export default function SaveRecovedPassword(){
+  const history = useHistory()
+  const[psw, setPsw] = useState({
+    newpsw:'',
+    confirmpsw:'',
+    wrong:false
+  })
+  const changePsw=(e)=>{
+    e.preventDefault();
+    setPsw({...psw,newpsw:e.target.value})
+  }
+  const changeConfirm=(e)=>{
+    e.preventDefault();
+    setPsw({...psw,confirmpsw:e.target.value})
+  }
+  function reg(e){
+    e.preventDefault()
+    if(psw.newpsw===psw.confirmpsw && psw.newpsw!=='' && psw.confirmpsw!==''){
+      history.push('./infosaved')
+    }
+    else{
+      setPsw({...psw,wrong:true})
+    }
+  }
+  console.log(psw)
     return(
         <div className='signin'>
         <div className='row align-items-center justify-content-center'>
@@ -12,20 +36,16 @@ export default function SaveRecovedPassword(){
         <div className='logo'>
            <img src={logo} alt='vitalem'/>
         </div>   
-       
         <div className='bodyPart'>
-        <Zoom>
         <div className='headingSignin'>
           <Heading name='Восстановление пароля'/>
         </div>
-            <form>
-                <InputPassword name='Придумайте новый пароль'/>
-                <InputPassword name='Повторите пароль'/>
-               <Link to='./infosaved'>
-               <BlueButton name='Сохранить'/>
-               </Link>
+            <form onSubmit={(e)=>(reg(e))}>
+                <InputPassword placeholderText='Придумайте новый пароль' cb={changePsw} nameV='password'/>
+                <InputPassword placeholderText='Повторите пароль'  cb={changeConfirm} nameV='password'/>
+                <BlueButton name='Сохранить'/>
+                <p className={psw.wrong?'redText_error':'none'}>Вы ввели неправильный пароль.</p>
             </form>
-        </Zoom>
         </div>
         </div>
     </div>

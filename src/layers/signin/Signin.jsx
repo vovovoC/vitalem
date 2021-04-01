@@ -1,15 +1,12 @@
 import logo from '../../images/Logo.svg'
 import BlueButton from '../../component/button/BlueButton'
 import SmallBlueLink from '../../component/links/SmallBlueLink'
-import InputText from '../../component/input/InputText'
 import InputPassword from '../../component/input/InputPassword'
-import {Link, Route} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Heading from '../../component/heading/Heading'
-import {Zoom,Slide} from 'react-reveal';
 import { useHistory } from "react-router-dom"
 import { useState } from 'react'
 import {login} from '../../api'
-import RecovePassword from './RecovePassword'
 import InputPhone from '../../component/input/InputPhone'
 
 export default function Signin({path}){
@@ -32,7 +29,7 @@ export default function Signin({path}){
   function log(e){
     e.preventDefault()
     login(customerSignUp.phone, customerSignUp.password, function(res){
-      if(res != undefined){
+      if(res !== undefined || res !== 'undefined'){
         history.push("./profile")
       }
     })

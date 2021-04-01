@@ -4,14 +4,10 @@ import DisType from '../../component/links/DisType'
 import PersonName from './PersonName'
 import Size from './Size'
 import Desc from './Desc'
-import {profile} from '../../api'
 import NavbarInside from '../../component/navbar/NavbarInside'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import qs from 'qs'
-const API_URL = 'https://cors-anywhere.herokuapp.com/https://t6.gist.kz/api/';
+// import {useState } from 'react'
 function Profile(){
-    const [profileInfo,setProfileInfo] = useState('')
+    // const [profileInfo,setProfileInfo] = useState('')
     const {goBack}=useHistory()
     const arr = [
         'Возраст',

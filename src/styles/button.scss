@@ -565,7 +565,7 @@ input[type=text],input[type=password]{
     text-align: center;
   }
 .registerstep{
-  margin-top: 50px;
+  margin-top: 60px;
   height: auto;
   width: 100%;
 }
@@ -1339,4 +1339,54 @@ input[type=text],input[type=password]{
 }
 .dis_p:last-child{
     border-bottom: 1px solid rgba(0, 0, 0, 0.0649626);
+}
+.logoClinic{
+    margin-top: 60px;
+    height: 200px;
+    width: 100%;
+}
+.infoClinics{
+    height:auto;
+    width:100%;
+    padding: 10px 20px;
+    border-bottom:2px solid rgba(0, 0, 0, 0.034);
+    text-align: left;
+    .blue{
+        font-family: $fontFamily;
+        font-size: 16px;
+        color: #007AFF;
+    }
+    .desc{
+        font-family: $fontFamily;
+        font-size: 14px;
+        color: #BBC3C6;
+    }
+}
+.hr-div{
+    height: 6px;
+    width: 100%;
+    background-color: #ececec;
+}
+.chooseEmp{
+    text-align: left;
+    .name{
+        font-family:$fontFamily;
+        font-size: 17px;
+        line-height: 22px;
+        letter-spacing: -0.41px;
+        color: #000000;
+    }
+    .desc{
+        font-family:$fontFamily;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: -0.24px;      
+        color: #000000;
+    }
+}
+.redText_error{
+color:red;
+font-size:14px;
+padding:10px 0;
+text-align:center;
 }

@@ -37,7 +37,7 @@ export default function Register(){
         setCount(prevCount=>prevCount-1)
        }
     }
-    const[step,setStep] = useState([
+    const step = [
         <Step1  increase={increase}/>,
         <Step2  increase={increase}/>,
         <Step3  increase={increase}/>,
@@ -52,7 +52,7 @@ export default function Register(){
         <Step12 increase={increase}/>,
         <Step13 increase={increase}/>,
         <Step14 increase={increase}/>
-    ])
+    ]
     return(
         <div className='signin'>
         <div className='row align-items-center justify-content-center'>

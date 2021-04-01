@@ -19,7 +19,7 @@ export default function InfoAboutRecove(){
         <div className='bodyPart'>
             <p className='infoAbout'>
                 Мы отправили ссылку для восстановления 
-                пароля на почту arman@cloudoc.kz. 
+                пароля на номер телефона. 
                 Перейдите по ссылке чтобы создать новый пароль.
             </p>
           <Link to='./savenewpassword'>

@@ -1,7 +1,6 @@
 import '../../styles/button.scss'
 import trueG from '../../images/bluechecked.svg'
 import falseG from '../../images/blueunchecked.svg'
-import {Link} from 'react-router-dom'
 export default function Choose(props){
     
     const{
