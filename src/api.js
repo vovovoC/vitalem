@@ -20,7 +20,7 @@ export const login = (phoneNumeber, password, callback) => {
         console.log(err)
     })
 }
-export const register  = (phoneNumeber, name_,surname_, lastname_,callback) => {
+export const register  = (phoneNumeber, name_,surname_, lastname_, callback , error_callback) => {
   axios.post(`${API_URL}register`,
       qs.stringify({
           phone: phoneNumeber,
@@ -37,11 +37,28 @@ export const register  = (phoneNumeber, name_,surname_, lastname_,callback) => {
       callback(res)
   })
   .catch((err)=>{
-      console.log(err)
+      error_callback(err)
   })
 }
-export const profile =(setProfileInfo)=>{  
-    if(window.localStorage.getItem("token") !== undefined || window.localStorage.getItem("token") !== 'undefined'){
+
+export const updateProfile = (credentials, success, error) => {
+  axios.put(
+    `${API_URL}user-profile`,
+    qs.stringify(credentials),
+    {
+      "x-requested-with": "xhr",
+      "Authorization": `Bearer ${window.localStorage.getItem("token")}`,
+    })
+  .then((res)=>{
+    success(res)
+  })
+  .catch((err)=>{
+    error(err)
+  })
+}
+
+export const profile =(items , setProfileInfo = (res = "asasd") => {})=>{  
+    if(window.localStorage.getItem("token") != undefined){
         axios.get(`${API_URL}profile`,
           {
             headers:{
@@ -56,7 +73,7 @@ export const profile =(setProfileInfo)=>{
         .catch((res)=>{
           console.log(res)
         });
-      }
+    }
 }
 
 export const anketa=(

@@ -18,32 +18,35 @@ import Register from './layers/register/Register';
 import Clinic from './layers/doctor/Clinic';
 import Clinic2 from './layers/doctor/Clinic2';
 import Clinic3 from './layers/doctor/Clinic3';
+import {RouterProvider} from './contextProviders/context'
+import { useHistory } from 'react-router-dom';
+
 function App() {
   
   return (
-    <Router> 
-      <Switch>
-            <Route path='/' exact component={Main}/>
-            <Route path='/signin' component={Signin}/>
-            <Route path='/register' component={Register}/>
-            <Route path='/recovePassword' component={RecovePassword}/>
-            <Route path='/inforecove' component={InfoAboutRecove}/>
-            <Route path='/savenewpassword' component={SaveRecovedPassword}/>
-            <Route path='/infosaved' component={InfoAboutSavedPassword}/>
-            <Route path='/health' component={PageH1}/>
-            <Route path='/searchInfo' component={PageSearch}/>
-            <Route path='/sharenews' component={ShareNews}/>
-            <Route path='/profile' component={Profile}/>
-            <Route path='/recommendation' component={Recommendation}/>
-            <Route path='/purpose' component={Purpose}/>
-            <Route path='/passport' component={Passport}/>
-            <Route path='/disease' component={DisPage}/>
-            <Route path='/anketa' component={Anketa}/>
-            <Route path='/doctor' component={Clinic}/>
-            <Route path='/doctor2' component={Clinic2}/>
-            <Route path='/doctor3' component={Clinic3}/>
-      </Switch>
-    </Router>
+      <Router> 
+        <Switch>
+              <Route path='/' exact component={Main}/>
+              <Route path='/signin' component={Signin}/>
+              <Route path='/register/:pageId' component={Register}/>
+              <Route path='/recovePassword' component={RecovePassword}/>
+              <Route path='/inforecove' component={InfoAboutRecove}/>
+              <Route path='/savenewpassword' component={SaveRecovedPassword}/>
+              <Route path='/infosaved' component={InfoAboutSavedPassword}/>
+              <Route path='/health' component={PageH1}/>
+              <Route path='/searchInfo' component={PageSearch}/>
+              <Route path='/sharenews' component={ShareNews}/>
+              <Route path='/profile' component={Profile}/>
+              <Route path='/recommendation' component={Recommendation}/>
+              <Route path='/purpose' component={Purpose}/>
+              <Route path='/passport' component={Passport}/>
+              <Route path='/disease' component={DisPage}/>
+              <Route path='/anketa' component={Anketa}/>
+              <Route path='/doctor' component={Clinic}/>
+              <Route path='/doctor2' component={Clinic2}/>
+              <Route path='/doctor3' component={Clinic3}/>
+        </Switch>
+      </Router>
   );
 }
 

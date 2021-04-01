@@ -3,9 +3,9 @@ import InputPassword from '../../component/input/InputPassword'
 import GreenCheck from '../../component/check/GreenCheck'
 import Heading from '../../component/heading/Heading'
 import {useState} from 'react'
-import {profile} from '../../api'
+import {updateProfile} from '../../api'
 import BlueButton from '../../component/button/BlueButton'
-export default function Step2({increase}){
+export default function Step2({increase , error}){
     const [userV,setUserV] = useState({
         email:'',
         password:'',
@@ -53,13 +53,28 @@ export default function Step2({increase}){
         if(ch.object.includes(index)) return true
         else return false
     }
+    const validation = () => {
+        let lenValidation = ""
+        Object.keys(userV).forEach(element => {
+          if(userV[element].length == 0 && element != "prevPassword") lenValidation = "Please fill all credetials" 
+        });
+        if(lenValidation.length > 0) return lenValidation
+        if(userV["password"]  !=  userV["confirmPassword"]) return "Passwords doesn't match"
+    
+        return true
+    }
     function reg(e){
         e.preventDefault()
-        profile(userV.email,userV.password, userV.confirmPassword,function(res){
-          if(res != undefined){
-            increase()
-          }
-        })
+
+        increase()
+
+        if(typeof validation() == "string"){
+            // error(validation())
+            return;
+        }
+        
+        // document.querySelector(".loader").classList.add("show_loader")
+        increase()
       }
       
     return(

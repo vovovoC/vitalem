@@ -5,13 +5,15 @@ import Heading from '../../component/heading/Heading'
 import {useState} from 'react'
 import { register } from '../../api'
 
-export default function Step1({increase=[]}){
+
+export default function Step1({increase=[], error}){
     const [userV, setUserV] = useState({
             name:'',
             surname:'',
             lastname:'',
             phone:''
     })
+    if(window.localStorage.getItem("token") != null) increase()
       const changeName = (e)=>{
           e.preventDefault();
         setUserV({...userV,name:e.target.value})
@@ -28,12 +30,34 @@ export default function Step1({increase=[]}){
       e.preventDefault();
     setUserV({...userV,phone:e.target.value})
   }
+  const validation = () => {
+    let lenValidation = ""
+    Object.keys(userV).forEach(element => {
+      if(userV[element].length == 0) lenValidation = "Please fill all credetials" 
+    });
+    if(lenValidation.length > 0) return lenValidation
+    if(userV["phone"].length  !=  16) return "Please fill valid phone"
+
+    return true
+  }
     function reg(e){
       e.preventDefault()
+
+      if(typeof validation() == "string"){
+        error(validation())
+        return;
+      }
+      error("")
+      document.querySelector(".loader").classList.add("show_loader")
       register(userV.phone,userV.name, userV.surname,userV.lastname, function(res){
         if(res != undefined){
+          document.querySelector(".loader").classList.remove("show_loader")
           increase()
         }
+      },function(err){
+
+        document.querySelector(".loader").classList.remove("show_loader")
+        error(err + "")
       })
     }
     
@@ -41,7 +65,7 @@ export default function Step1({increase=[]}){
        <div>
           <div className='registerBody'>
             <div className='headingSignin'>
-            <Heading name='Зарегистрируйтесь и раскройте секреты своего здоровья'/>
+              <Heading name='Зарегистрируйтесь и раскройте секреты своего здоровья'/>
             </div>
             <form onSubmit={reg}>
                 <InputText placeholderText='Имя' cb = {changeName}/>
@@ -49,7 +73,7 @@ export default function Step1({increase=[]}){
                 <InputText placeholderText='Отчество' cb = {changeLastname}/>
                 <InputPhone placeholderText='Введите номер телефона' cb = {changePhone}/>
                 <div className='bt'>
-                <BlueButton name='Далее'/>
+                  <BlueButton name='Далее'/>
                 </div>
             </form>
         </div>
