@@ -8,7 +8,7 @@ import InputPhone from '../../component/input/InputPhone'
 export default function RecovePassword(){
   const history = useHistory()
   const[newpsw, setNewpsw] = useState({
-    phone:''
+    phone:'',error:''
   })
   const changePhone =(e)=>{
     e.preventDefault();
@@ -21,11 +21,9 @@ export default function RecovePassword(){
       if(newpsw.phone!==''){
         history.push('./inforecove')
       }
-      // login(customerSignUp.phone, customerSignUp.password, function(res){
-      //   if(res !== undefined || res !== 'undefined' ||newpsw.email!==''){
-      //     history.push("./profile")
-      //   }
-      // })
+      else{
+        setNewpsw({...newpsw,error:'Неправильный номер'})
+      }
     }
     return(
       <div className='signin'>
@@ -41,6 +39,7 @@ export default function RecovePassword(){
           <form onSubmit={(e)=>(reg(e))}>
               <InputPhone nameV='phone' placeholderText='Введите номер телефона' cb ={changePhone}/>
               <BlueButton name='Восстановить'/>
+              <p className={newpsw.error.length>0?'redText_error':'none'}>{newpsw.error}</p>
           </form>
           <Link to='./signin'>
           <SmallBlueLink link='Вспомнил пароль'/>
