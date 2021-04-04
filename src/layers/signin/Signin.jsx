@@ -56,7 +56,7 @@ export default function Signin(){
         </div>
         <div className='signintoregister'>
           <p>
-          Нет аккаунта? <Link to='./register'>Пройдите регистрацию</Link>
+          Нет аккаунта? <Link to={`./register/${1}`}>Пройдите регистрацию</Link>
           </p>
           <p>
             Получите доступ к онлайн сервису у Вашего врача

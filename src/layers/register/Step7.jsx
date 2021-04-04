@@ -1,14 +1,16 @@
-    import Heading from '../../component/heading/Heading'
-    import {Zoom} from 'react-reveal';
-    import '../../styles/button.scss'
-    import {useState} from 'react'
-    import LifeStyle from '../../component/choose/LifeStyle'
+import Heading from '../../component/heading/Heading'
+import {Zoom} from 'react-reveal';
+import '../../styles/button.scss'
+import {useState} from 'react'
+import LifeStyle from '../../component/choose/LifeStyle'
+import BlueButton from '../../component/button/BlueButton'
+
 const arr = [
     'Малоподвижный, сидячий',
     'Средней активности',
     'Активный, спортивный'
 ];
-export default function Step7(){
+export default function Step7({increase = []}){
     const emp = ''
     const[chooseOne, setChooseOne] = useState({
         chosen:null,
@@ -21,6 +23,15 @@ export default function Step7(){
             chosen:chooseOne.objects[index]
         })
     }
+    function reg(e){
+        e.preventDefault()
+        increase()
+        // profile(date.number,date.month,date.year, function(res){
+        //   if(res != undefined){
+        //     increase()
+        //   }
+        // })
+    }
     return(
         <div className='registerBody'>
         <Zoom>
@@ -28,22 +39,25 @@ export default function Step7(){
             <Heading name='Какой у вас образ жизни?'/>
             </div>
             <div>
-            {  
-                chooseOne.objects.map((el, index)=>(
-                    <div 
-                        key={index}
-                        onClick={()=>{
-                        handleState(index)
-                        }}>
-                            <LifeStyle 
-                                text={arr[index]} 
-                                dis={emp}
-                                choose = {
-                                chooseOne.chosen === chooseOne.objects[index]?'allow':'no'
-                        }/> 
-                    </div>
-                ))    
-            }
+                {  
+                    chooseOne.objects.map((el, index)=>(
+                        <div 
+                            key={index}
+                            onClick={()=>{
+                            handleState(index)
+                            }}>
+                                <LifeStyle 
+                                    text={arr[index]} 
+                                    dis={emp}
+                                    choose = {
+                                    chooseOne.chosen === chooseOne.objects[index]?'allow':'no'
+                            }/> 
+                        </div>
+                    ))    
+                }
+            </div>
+            <div className='bt' onClick={(e) => reg(e)}>
+                <BlueButton name='Далее'/>
             </div>
         </Zoom>
         </div>

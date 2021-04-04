@@ -2,6 +2,7 @@ import Heading from '../../component/heading/Heading'
 import '../../styles/button.scss'
 import {useState} from 'react'
 import LifeStyle from '../../component/choose/LifeStyle'
+import BlueButton from '../../component/button/BlueButton'
 
 const arr = [
     'Просто оздоровиться и предупредить болезни',
@@ -12,7 +13,7 @@ const arr = [
     'Другое'
 ];
 const emp = ''
-export default function Step9(){
+export default function Step9({increase = []}){
 
     const[ch, setCh] = useState({
         object:[]
@@ -39,6 +40,15 @@ export default function Step9(){
         if(ch.object.includes(index)) return true
         else return false
     }
+    function reg(e){
+        e.preventDefault()
+        increase()
+        // profile(date.number,date.month,date.year, function(res){
+        //   if(res != undefined){
+        //     increase()
+        //   }
+        // })
+    }
 return(
     <div className='registerstep'>
         <div className='headingSignin'>
@@ -46,24 +56,25 @@ return(
         </div>
         <p className='podText'>Можно выбрать несколько целей</p>
         <div>
-        {  
-                                arr.map((el, index)=>(
-                                    <div 
-                                        key={index}
-                                        onClick={()=>{
-                                           toggle(index)
-                                        }}>
-                                           <LifeStyle 
-                                                text={arr[index]} 
-                                                choose = {(toggleAllow(index)||emp.length!==0)?'allow':'no'}
-                                                dis={emp}
-                                                />   
-                                    </div>
-                                ))    
-                            }
-                            
+            {  
+                arr.map((el, index)=>(
+                    <div 
+                        key={index}
+                        onClick={()=>{
+                            toggle(index)
+                        }}>
+                            <LifeStyle 
+                                text={arr[index]} 
+                                choose = {(toggleAllow(index)||emp.length!==0)?'allow':'no'}
+                                dis={emp}
+                                />   
+                    </div>
+                ))    
+            }         
         </div>
-    
+        <div className='bt' onClick={(e) => reg(e)}>
+                <BlueButton name='Далее'/>
+            </div>
     </div>
 )
 }

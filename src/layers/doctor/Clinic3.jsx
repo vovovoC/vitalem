@@ -31,7 +31,10 @@ const urlArray = [
     'heart',
     'heart'
 ]
-export default function Clinic3(){
+export default function Clinic3({match}){
+    const {
+        params: {name,clinicId}
+    } = match
     const{goBack} = useHistory()
     return(
         <div className='register'>

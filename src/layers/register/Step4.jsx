@@ -12,11 +12,12 @@ export default function Step4({increase}){
     });
     function reg(e){
         e.preventDefault()
-        profile(date.number,date.month,date.year, function(res){
-          if(res != undefined){
-            increase()
-          }
-        })
+        increase()
+        // profile(date.number,date.month,date.year, function(res){
+        //   if(res != undefined){
+        //     increase()
+        //   }
+        // })
       }
     return(
         <div className='registerBody'>
@@ -25,12 +26,10 @@ export default function Step4({increase}){
             <Heading name='Выберите дату рождение '/>
             </div>
           <form onSubmit={reg}>
-          <div>
-                <ChooseDate setDate={setDate} date={date}/>
-            </div>
-            <div className='bt'>
-                <BlueButton name='Далее'/>
-                </div> 
+            <ChooseDate setDate={setDate} date={date}/>
+              <div className='bt'>
+                  <BlueButton name='Далее'/>
+              </div> 
           </form>
         </Zoom>
         </div>

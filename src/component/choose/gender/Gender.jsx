@@ -23,6 +23,7 @@ function Gender({setGender}){
                                                 ()=>{
                                                     setFm(false); 
                                                     setM(!m);
+                                                    changeGender()
                                                 }
                                             }>
                                               {m ? <img src={trueG} alt='choose'/>:<img src={falseG} alt='choose'/>}
@@ -44,6 +45,7 @@ function Gender({setGender}){
                                                 ()=>{
                                                     setFm(!fm); 
                                                     setM(false);
+                                                    changeGender()
                                                 }
                                             }>
                                                 {fm ?<img src={trueG} alt='choose'/>:<img src={falseG} alt='choose'/> }
