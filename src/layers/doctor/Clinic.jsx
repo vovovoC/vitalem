@@ -1,18 +1,18 @@
 import Heading from '../../component/heading/Heading'
 import '../../styles/button.scss'
 import {useState} from 'react'
-import vitalem from '../../images/vitalem-clinic.svg'
-import keruen from '../../images/keruen.svg'
-import persona from '../../images/persona-clinics.svg'
-import health from '../../images/health-city.svg'
-import private_ from '../../images/private-clinics.svg'
+import health_city from '../../images/vitalem-clinic.svg'
+import vitalem from '../../images/keruen.svg'
+import private_ from '../../images/persona-clinics.svg'
+import persona from '../../images/health-city.svg'
+import keruen from '../../images/private-clinics.svg'
 import ChooseClinic from '../../component/choose/ChooseClinic'
 import {Link,useHistory} from 'react-router-dom'
 import RegisterNavbar from '../../component/navbar/RegisterNavbar'
 import BlueButton from '../../component/button/BlueButton'
 import Clinic2 from './Clinic2'
 const arrImg = [
-    vitalem,health,persona,private_,keruen
+    vitalem,health_city,persona,private_,keruen
 ]
 const arr = [
     'Vitalem Clinics',
@@ -37,10 +37,6 @@ const handleState=(index)=>{
         chosen:chooseOne.objects[index]
     })
 }
-// const showClinics=(e)=>{
-//     e.preventDefault();
-//     setClin(true);
-// }
 return(
     <div className='signin'>
     <div className='row align-items-center justify-content-center'>

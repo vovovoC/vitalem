@@ -1,15 +1,33 @@
 import Footer from '../../component/goto/Footer'
-import {useHistory} from 'react-router-dom'
+import {useHistory,Link} from 'react-router-dom'
 import { useState} from "react";
 import BlueButton from '../../component/button/BlueButton'
 import '../../styles/button.scss'
-import  imgClinics from '../../images/Logo.svg'
+import health_city from '../../images/vitalem-clinic.svg'
+import vitalem from '../../images/keruen.svg'
+import private_ from '../../images/persona-clinics.svg'
+import persona from '../../images/health-city.svg'
+import keruen from '../../images/private-clinics.svg'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import RegisterNavbar from "../../component/navbar/RegisterNavbar";
 import InfoClinics from "../../component/goto/InfoClinics";
-export default function Clinic2(){
+export default function Clinic2({match}){
+    const {
+        params: {clinicId}
+    } = match
  const {goBack} = useHistory()
  var nameClinics = ''
+
+ const arrImg = [
+    vitalem,health_city,persona,private_,keruen
+]
+const arr = [
+    'Vitalem Clinics',
+    'Health City',
+    'Persona Clinics',
+    'Private Clinics',
+    'Keruen Medicus'
+];
    const textActive=
    [
 '- Соблюдать здоровый образ жизни: ежедневная пешая ходьба минимум 30 минут, занятие спортом (плавание, йога) 3 раза в неделю минимум по 1 часу, полноценный сон, не менее 7 часов, стараться засыпать и просыпаться в одно и то же время.',
@@ -45,10 +63,10 @@ console.log(Object.keys(infoCl))
             <div className='logoClinic'>
                 <div className='row align-items-center'>
                     <div className='col-3'>
-                            <img src={imgClinics} alt={nameClinics}/>
+                            <img src={arrImg[clinicId-1]} alt={nameClinics}/>
                     </div>
                     <div className='col-9'>
-
+                            <span>{arr[clinicId-1]}</span>
                     </div>
                 </div>
                 <div className='row'>
@@ -71,9 +89,11 @@ console.log(Object.keys(infoCl))
                      ))
                 }
             </div>
+            <Link to={`/clinic/${arr[clinicId]}/${clinicId}`}>
             <div className='redBtn'>
              <BlueButton name='Записаться на прием'/>
              </div>
+             </Link>
              <Footer activeStatus='3'/> 
     </div> 
     </div>

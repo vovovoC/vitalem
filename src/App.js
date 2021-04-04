@@ -18,9 +18,9 @@ import Register from './layers/register/Register';
 import Clinic from './layers/doctor/Clinic';
 import Clinic2 from './layers/doctor/Clinic2';
 import Clinic3 from './layers/doctor/Clinic3';
-import ClinicDetail from './layers/doctor/ClinicDetail';
-import {RouterProvider} from './contextProviders/context'
-import { useHistory } from 'react-router-dom';
+// import ClinicDetail from './layers/doctor/ClinicDetail';
+// import {RouterProvider} from './contextProviders/context'
+// import { useHistory } from 'react-router-dom';
 
 function App() {
   
@@ -44,9 +44,9 @@ function App() {
               <Route path='/disease' component={DisPage}/>
               <Route path='/anketa' component={Anketa}/>
               <Route path='/doctor' component={Clinic}/>
-              <Route path='/clinic/:clinicId' component={ClinicDetail}/>
-              <Route path='/doctor2' component={Clinic2}/>
-              <Route path='/doctor3' component={Clinic3}/>
+              <Route path='/clinic/:clinicId' component={Clinic2}/>
+              <Route path='/clinic/:name/:clinicId' component={Clinic3}/>
+              {/* <Route path='/clinic/:clinicId/:name' component={Clinic3}/> */}
         </Switch>
       </Router>
   );
