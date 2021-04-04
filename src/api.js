@@ -2,7 +2,7 @@ import axios from 'axios'
 import qs from 'qs'
 const API_URL = 'https://cors-anywhere.herokuapp.com/https://t6.gist.kz/api/';
 
-export const login = (phoneNumeber, password, callback) => {
+export const login = (phoneNumeber, password,callback) => {
     axios.post(`${API_URL}login`,
         qs.stringify({
             phone: phoneNumeber,

@@ -9,7 +9,7 @@ export default function SaveRecovedPassword(){
   const[psw, setPsw] = useState({
     newpsw:'',
     confirmpsw:'',
-    wrong:false
+    wrong:''
   })
   const changePsw=(e)=>{
     e.preventDefault();
@@ -25,7 +25,7 @@ export default function SaveRecovedPassword(){
       history.push('./infosaved')
     }
     else{
-      setPsw({...psw,wrong:true})
+      setPsw({...psw,wrong:'Неправильный пароль'})
     }
   }
   console.log(psw)
@@ -44,7 +44,7 @@ export default function SaveRecovedPassword(){
                 <InputPassword placeholderText='Придумайте новый пароль' cb={changePsw} nameV='password'/>
                 <InputPassword placeholderText='Повторите пароль'  cb={changeConfirm} nameV='password'/>
                 <BlueButton name='Сохранить'/>
-                <p className={psw.wrong?'redText_error':'none'}>Вы ввели неправильный пароль.</p>
+                <p className={psw.wrong.length>0?'redText_error':'none'}>Вы ввели неправильный пароль.</p>
             </form>
         </div>
         </div>
