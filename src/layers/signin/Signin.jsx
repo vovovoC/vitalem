@@ -39,7 +39,7 @@ export default function Signin(){
             <div className='logo'>
               <img src={logo} alt='vitalem'/>
             </div>   
-          <div className='bodyPart'>
+            <div className='bodyPart'>
             
             <div className='headingSignin'>
               <Heading name='Войти'/>
@@ -53,7 +53,7 @@ export default function Signin(){
             <Link to={`./recovePassword`}>
               <SmallBlueLink link='Забыли пароль?'/>
             </Link>
-        </div>
+          </div>
         <div className='signintoregister'>
           <p>
           Нет аккаунта? <Link to={`./register/${1}`}>Пройдите регистрацию</Link>
